@@ -15,15 +15,12 @@ injectGlobal`
 `;
 
 export const Container = styled.section`
-  display: flex;
-  flex-wrap: wrap;
   margin: 0 auto;
-  padding: 20px;
-  max-width: 1100px;
+  max-width: 1110px;
 `;
 
-export const Box = styled.div`
-  display: inline-block;
+export const BoxElement = styled.div`
+  float: left;
   height: 19px;
   width: 19px;
   margin: 1px;

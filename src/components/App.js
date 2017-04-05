@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Container, Box } from '../styled';
+import { Container, BoxElement } from '../styled';
 import Moment from 'moment';
 import { extendMoment } from 'moment-range';
 
@@ -8,77 +8,57 @@ const moment = extendMoment(Moment);
 const data = {
   name: 'Mark Pinero',
   birthday: [1987, 10, 13],
-  birthdayString: '1987-11-13',
+  birthdayString: '11-13',
   lifeExpectancy: 84.07,
-  data: []
+  weeks: []
 };
 
 class App extends Component {
   render() {
-    const now = moment();
-    const birthdayWeek = moment(data.birthday).startOf('week');
-    const weeks = now.diff(birthdayWeek, 'weeks');
-    console.log(weeks);
+    // const now = moment();
+    // const birthdayWeek = moment(data.birthday).startOf('week');
+    // const weeks = now.diff(birthdayWeek, 'weeks');
+    // console.log(weeks);
 
-    let years = 90 * 52;
-    let lifeExpectancyWeeks = Math.round(data.lifeExpectancy * 52);
-    // make this many boxes, active boxes up til now
-    // it's missing sunday birthdays
+    let years = 25;
 
-    for (let i = 0; i <= years; i++) {
-      const weekOf = moment(data.birthday)
-        .add(i, 'week')
-        .startOf('week')
-        .format('YYYY-MM-DD');
-      const weekEnd = moment(weekOf).add(1, 'week').format('YYYY-MM-DD');
-      const getYear = moment(weekOf).get('year');
-      const weekRange = moment.range(weekOf, weekEnd);
-      const thisYearBirthday = new Date(
-        getYear,
-        data.birthday[1],
-        data.birthday[2]
+    for (let age = 0; age < years; age++) {
+      const setYear = moment(data.birthday).add(age, 'year').year();
+      const startDate = moment(`${setYear}-${data.birthdayString}`).format(
+        'YYYY-MM-DD'
       );
-      const checkBirthday = weekRange.contains(thisYearBirthday, {
-        exclusive: true
-      });
-      let expectedAlive = true;
-      if (i > lifeExpectancyWeeks) {
-        expectedAlive = false;
-      }
 
-      data.data.push({
-        week: i,
-        date: weekOf,
-        birthday: checkBirthday,
-        expectedAlive: expectedAlive
-      });
+      for (let week = 0; week < 52; week++) {
+        const setWeek = moment(startDate)
+          .add({ weeks: week })
+          .format('YYYY-MM-DD');
+
+        let checkBirthday = false;
+
+        if (setWeek === startDate) {
+          checkBirthday = true;
+        }
+
+        data.weeks.push({
+          birthWeek: checkBirthday,
+          date: setWeek
+        });
+      }
     }
 
-    const boxes = data.data.map((e, i) => {
-      if (e.expectedAlive) {
-        if (e.birthday) {
-          return (
-            <Box
-              key={i}
-              date={e}
-              style={{ border: '1px black solid', background: 'white' }}
-            />
-          );
-        } else {
-          return (
-            <Box
-              key={i}
-              date={e}
-              style={{ background: 'rgba(0, 0, 0, 0.2)' }}
-            />
-          );
-        }
-      } else {
-        return <Box key={i} date={e} />;
-      }
-    });
+    function Box(props) {
+      let birthdayStyle = { border: '1px black solid' };
+      return (
+        <BoxElement
+          date={props.date}
+          style={props.birthWeek ? birthdayStyle : null}
+        />
+      );
+    }
 
-    console.log(data);
+    const boxes = data.weeks.map((e, i) => {
+      return <Box key={i} date={e} birthWeek={e.birthWeek} />;
+    });
 
     return (
       <div className="App">
