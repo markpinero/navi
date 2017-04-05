@@ -1,26 +1,19 @@
 import React, { Component } from 'react';
 import { Container, BoxElement } from '../styled';
-import Moment from 'moment';
-import { extendMoment } from 'moment-range';
-
-const moment = extendMoment(Moment);
+import moment from 'moment';
 
 const data = {
   name: 'Mark Pinero',
   birthday: [1987, 10, 13],
   birthdayString: '11-13',
-  lifeExpectancy: 84.07,
+  lifeExpectancy: 84,
   weeks: []
 };
 
 class App extends Component {
   render() {
     // const now = moment();
-    // const birthdayWeek = moment(data.birthday).startOf('week');
-    // const weeks = now.diff(birthdayWeek, 'weeks');
-    // console.log(weeks);
-
-    let years = 25;
+    const years = 90;
 
     for (let age = 0; age < years; age++) {
       const setYear = moment(data.birthday).add(age, 'year').year();
