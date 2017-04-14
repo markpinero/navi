@@ -7,13 +7,32 @@ const data = {
   birthday: [1987, 10, 13],
   birthdayString: '11-13',
   lifeExpectancy: 84,
-  weeks: []
+  weeks: [],
+  highlight: false
 };
+
+const highlights = [
+  {
+    date: '1988-10-11',
+    title: 'Test title',
+    category: 'Home'
+  },
+  {
+    date: '1988-10-13',
+    title: 'Test title 2',
+    category: 'Home'
+  },
+  {
+    date: '1988-10-15',
+    title: 'Test title 3',
+    category: 'Home'
+  }
+];
 
 class App extends Component {
   render() {
     // const now = moment();
-    const years = 90;
+    const years = 2;
 
     for (let age = 0; age < years; age++) {
       const setYear = moment(data.birthday).add(age, 'year').year();
@@ -25,6 +44,13 @@ class App extends Component {
         const setWeek = moment(startDate)
           .add({ weeks: week })
           .format('YYYY-MM-DD');
+        let highlight;
+        let weekEnd = moment(setWeek).add(6, 'days');
+        for (let i in highlights) {
+          if (moment(highlights[i].date).isBetween(setWeek, weekEnd)) {
+            highlight = true;
+          }
+        }
 
         let checkBirthday = false;
 
@@ -34,7 +60,8 @@ class App extends Component {
 
         data.weeks.push({
           birthWeek: checkBirthday,
-          date: setWeek
+          date: setWeek,
+          highlight: highlight
         });
       }
     }
@@ -44,13 +71,13 @@ class App extends Component {
       return (
         <BoxElement
           date={props.date}
-          style={props.birthWeek ? birthdayStyle : null}
+          style={props.highlight ? birthdayStyle : null}
         />
       );
     }
 
     const boxes = data.weeks.map((e, i) => {
-      return <Box key={i} date={e} birthWeek={e.birthWeek} />;
+      return <Box key={i} date={e} highlight={e.highlight} />;
     });
 
     return (
