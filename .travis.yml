@@ -1,0 +1,9 @@
+language: node_js
+node_js: node
+deploy:
+  provider: heroku
+  api_key:
+    secure: m4HIqcnqXXPJ16aHXhbPVTjptKz4jBzRQ/BEyXfDFY7U+DP6NZVmVkEqSnJ4tiAjLLacGBtbLRwGoFe2T1lAIds0WZaDdxVKyZZkJKZzGaDNuLryV0GMMApF1abQcSP30AHU3bzLNNai+W8znj+61XFAhMcNvvjhazIyPcMe4r6ErONmyazMdKxGY0+4lrEIf5RLtHT7LXTMSzZaqgE2Taw5hEKjj5A5hFArVl0SFjKXIZa8BLUUGu+2jLHKwBYXpiP5thXI06Q/80jPi7Y6ZbERyIP5lyeXd5RMecb7xNFmG3DsRWTpzzA6vmWTD9Qm3z5du/2rLW9Zo7HW3SLJkDwzq4OXid0nzf6leqSDNVKPCllJyZU7bsMmZJIQLv9R/xw+IKHDcfMxY/0VdaOkFsb1Sfs1dWTRIKhWNVrJ4CaqxEJ5M1j10YV950tTqiFEQ7DVBHfFQ2sMJEMGKnkOaHhEI/JP+rlxWl1cfoXPSrd8cUPLH0KouivOz3L/cV74KpQdFlgkjzSZ4/6cato6DS9kRI2oCohxg5Q8+lBvJyVkMRs+8voPXcvAomzpAqYK9F8csEELprLGInp1AUHX5UbxuH4SqkaqPH4T8sNlJ+LrymL0WTgRygdibWPF3qYuFZYKGJGSLNvsFS/1K+ETSb+1TloXs0Mc5xhdGjqiG6M=
+  app: floating-hollows-30786
+  on:
+    repo: remarks/navi
