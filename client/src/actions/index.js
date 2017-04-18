@@ -28,9 +28,10 @@ export const registerUser = ({ email, password }) => {
 
 export const loginUser = ({ email, password }) => {
   return dispatch => {
-    axios('/api/auth/login', { email, password }).then(response => {
+    axios.post('/api/auth/login', { email, password }).then(response => {
       cookie.save('token', response.data.token, { path: '/' });
       dispatch(authenticateUser(response.data.user));
+      window.location.href = `${CLIENT_ROOT_URL}`;
     });
   };
 };

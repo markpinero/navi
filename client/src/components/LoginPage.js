@@ -1,7 +1,7 @@
 import React from 'react';
 import LoginForm from './LoginForm';
 import { connect } from 'react-redux';
-import * as accountActions from '../actions';
+import * as authActions from '../actions';
 
 class LoginPage extends React.Component {
   constructor(props) {
@@ -30,7 +30,7 @@ class LoginPage extends React.Component {
   handleSubmit(event) {
     event.preventDefault();
     // TODO: add login
-    this.props.dispatch(accountActions.login(this.state.user));
+    this.props.dispatch(authActions.loginUser(this.state.user));
   }
 
   render() {
@@ -44,10 +44,4 @@ class LoginPage extends React.Component {
   }
 }
 
-function mapStateToProps(state, ownProps) {
-  return {
-    user: state.user
-  };
-}
-
-export default connect(mapStateToProps)(LoginPage);
+export default connect()(LoginPage);

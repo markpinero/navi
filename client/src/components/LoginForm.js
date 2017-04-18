@@ -1,9 +1,10 @@
 import React from 'react';
-import { Button, Form } from 'semantic-ui-react';
+import { Button, Form, Divider } from 'semantic-ui-react';
 
 const LoginForm = ({ onSubmit, onChange, errors, user }) => (
   <div>
     <h1>Login</h1>
+    <Divider />
     <Form action="/" onSubmit={onSubmit}>
       <Form.Input
         label="E-Mail"
@@ -18,7 +19,7 @@ const LoginForm = ({ onSubmit, onChange, errors, user }) => (
         type="password"
         value={user.password}
       />
-      <Button type="submit">Submit</Button>
+      <Button fluid type="submit">Submit</Button>
     </Form>
   </div>
 );

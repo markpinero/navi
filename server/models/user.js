@@ -13,10 +13,7 @@ const UserSchema = new Schema({
     type: String,
     required: true
   },
-  resetPasswordToken: {
-    type: String
-  },
-  resetPasswordExpires: {
+  dateOfBirth: {
     type: Date
   },
   highlights: [
@@ -34,7 +31,13 @@ const UserSchema = new Schema({
         encrypted: true
       }
     }
-  ]
+  ],
+  resetPasswordToken: {
+    type: String
+  },
+  resetPasswordExpires: {
+    type: Date
+  }
 });
 
 UserSchema.pre('save', function(next) {

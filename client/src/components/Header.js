@@ -1,7 +1,7 @@
 import React from 'react';
-import { Menu } from 'semantic-ui-react';
+import { Menu, Segment, Container, Button } from 'semantic-ui-react';
 import { NavLink, Link } from 'react-router-dom';
-import { HeaderElement } from '../styles';
+import { HeaderSegment } from '../styled';
 import { connect } from 'react-redux';
 import { logoutUser } from '../actions';
 
@@ -18,44 +18,50 @@ class Header extends React.Component {
 
   render() {
     const loggedIn = (
-      <Menu.Menu position="right">
-        <Menu.Item as={NavLink} name="profile" to="/profile">
+      <Menu.Item position="right">
+        <Button as={NavLink} name="profile" to="/profile" color="blue" basic>
           Profile
-        </Menu.Item>
-        <Menu.Item
+        </Button>
+        <Button
           as={NavLink}
           name="logout"
           to="/logout"
-          onClick={this.handleLogout}>
+          onClick={this.handleLogout}
+          basic>
           Logout
-        </Menu.Item>
-      </Menu.Menu>
+        </Button>
+      </Menu.Item>
     );
 
     const loggedOut = (
-      <Menu.Menu position="right">
-        <Menu.Item as={NavLink} name="register" to="/register">
-          Sign Up
-        </Menu.Item>
-        <Menu.Item as={NavLink} name="login" to="/login">Login</Menu.Item>
-      </Menu.Menu>
+      <Menu.Item position="right">
+        <Button.Group color="blue">
+          <Button as={NavLink} name="register" to="/register">
+            Sign Up
+          </Button>
+          <Button as={NavLink} name="login" to="/login">Login</Button>
+        </Button.Group>
+      </Menu.Item>
     );
 
     const authenticated = this.props.authenticated;
 
     return (
-      <HeaderElement>
-        <Menu>
-          <Menu.Item header as={Link} to="/">Navi</Menu.Item>
-          {authenticated ? loggedIn : loggedOut}
-        </Menu>
-      </HeaderElement>
+      <HeaderSegment
+        textAlign="center"
+        attached
+        vertical
+        className="masthead"
+        color="blue">
+        <Container>
+          <Menu size="large" secondary>
+            <Menu.Item as={Link} to="/">Navi</Menu.Item>
+            {authenticated ? loggedIn : loggedOut}
+          </Menu>
+        </Container>
+      </HeaderSegment>
     );
   }
 }
 
-const mapStateToProps = (state, ownProps) => ({
-  authenticated: state.auth.authenticated
-});
-
-export default connect(mapStateToProps)(Header);
+export default connect()(Header);
