@@ -1,4 +1,5 @@
 const AuthenticationController = require('./controllers/authentication');
+const HighlightController = require('./controllers/highlight');
 const express = require('express');
 const passport = require('passport');
 const passportService = require('./config/passport');
@@ -16,7 +17,11 @@ module.exports = function(app) {
   authRoutes.post('/register', AuthenticationController.register);
   authRoutes.post('/login', requireLogin, AuthenticationController.login);
 
-  // userRoutes.post('/user')
+  // User
+  //
+  // apiRoutes.use('user', userRoutes);
+  //
+  // userRoutes.post('/post', requireAuth, HighlightController.saveHighlight);
 
   app.use('/api', apiRoutes);
 };

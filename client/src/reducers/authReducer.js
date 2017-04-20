@@ -1,5 +1,6 @@
 import * as types from '../actions/actionTypes';
-import initialState from './initialState';
+
+const initialState = { authenticated: false, errors: {} };
 
 export default function reducers(state = initialState, action) {
   switch (action.type) {

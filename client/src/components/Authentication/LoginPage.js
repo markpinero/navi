@@ -1,9 +1,9 @@
 import React from 'react';
-import RegisterForm from './RegisterForm';
+import LoginForm from './LoginForm';
 import { connect } from 'react-redux';
-import * as authActions from '../actions';
+import * as authActions from '../../actions/authActions';
 
-class RegisterPage extends React.Component {
+class LoginPage extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -29,14 +29,13 @@ class RegisterPage extends React.Component {
 
   handleSubmit(event) {
     event.preventDefault();
-    console.log(`email: ${this.state.user.email}`);
-    console.log(`password: ${this.state.user.password}`);
-    this.props.dispatch(authActions.registerUser(this.state.user));
+    // TODO: add login
+    this.props.dispatch(authActions.loginUser(this.state.user));
   }
 
   render() {
     return (
-      <RegisterForm
+      <LoginForm
         onSubmit={this.handleSubmit}
         onChange={this.handleChange}
         user={this.state.user}
@@ -45,8 +44,4 @@ class RegisterPage extends React.Component {
   }
 }
 
-const mapStateToProps = (state, ownProps) => ({
-  user: state.users
-});
-
-export default connect(mapStateToProps)(RegisterPage);
+export default connect()(LoginPage);

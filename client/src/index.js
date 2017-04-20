@@ -3,6 +3,7 @@ import ReactDOM from 'react-dom';
 import cookie from 'react-cookie';
 import { BrowserRouter as Router } from 'react-router-dom';
 import 'semantic-ui-css/semantic.min.css';
+import './styles.css';
 import App from './components/App';
 
 import { Provider } from 'react-redux';

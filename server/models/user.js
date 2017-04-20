@@ -16,22 +16,6 @@ const UserSchema = new Schema({
   dateOfBirth: {
     type: Date
   },
-  highlights: [
-    {
-      date: {
-        type: Date,
-        required: true
-      },
-      category: {
-        type: String,
-        required: true
-      },
-      event: {
-        type: String,
-        encrypted: true
-      }
-    }
-  ],
   resetPasswordToken: {
     type: String
   },

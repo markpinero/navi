@@ -19,12 +19,6 @@ const RegisterForm = ({ onSubmit, onChange, errors, user }) => (
         type="password"
         value={user.password}
       />
-      <Form.Input
-        label="Date of Birth"
-        onChange={onChange}
-        name="dateOfBirth"
-        value={user.dateOfBirth}
-      />
       <Button fluid type="submit">Submit</Button>
     </Form>
   </div>

@@ -1,9 +1,9 @@
 import React from 'react';
-import { Menu, Segment, Container, Button } from 'semantic-ui-react';
+import { Menu, Container, Button } from 'semantic-ui-react';
 import { NavLink, Link } from 'react-router-dom';
 import { HeaderSegment } from '../styled';
 import { connect } from 'react-redux';
-import { logoutUser } from '../actions';
+import { logoutUser } from '../actions/authActions';
 
 class Header extends React.Component {
   constructor(props) {

@@ -2,9 +2,9 @@ import React from 'react';
 import { Segment } from 'semantic-ui-react';
 
 const Dashboard = () => (
-  <div>
+  <Segment>
     <h1>Dashboard</h1>
-  </div>
+  </Segment>
 );
 
 export default Dashboard;
