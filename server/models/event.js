@@ -1,17 +1,13 @@
 const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
-const HighlightSchema = new Schema({
-  highlightId: {
-    type: Schema.Types.ObjectId,
-    required: true
-  },
+const EventSchema = new Schema({
   user: {
     type: Schema.Types.ObjectId,
     ref: 'User'
   },
   date: {
-    type: Date,
+    type: String,
     required: true
   },
   category: {
@@ -19,8 +15,8 @@ const HighlightSchema = new Schema({
     required: true
   },
   event: {
-    type: String,
-    encrypted: true
+    type: String
+    // encrypted: true
   },
   private: {
     type: Boolean,
@@ -28,4 +24,4 @@ const HighlightSchema = new Schema({
   }
 });
 
-module.exports = mongoose.model('Highlight', HighlightSchema);
+module.exports = mongoose.model('Event', EventSchema);

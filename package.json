@@ -37,7 +37,7 @@
   },
   "scripts": {
     "start": "concurrently \"npm run server\" \"npm run client\"",
-    "server": "babel-node start-server",
+    "server": "nodemon start-server",
     "client": "babel-node start-client"
   }
 }

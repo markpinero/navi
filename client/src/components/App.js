@@ -10,6 +10,7 @@ import LoginPage from './Authentication/LoginPage';
 import Onboarding from './Onboarding';
 import Profile from './Profile';
 import { connect } from 'react-redux';
+import NewEvent from './NewEvent';
 
 class App extends Component {
   render() {
@@ -24,6 +25,7 @@ class App extends Component {
             component={loggedIn ? Dashboard : LandingPage}
           />
           <Route path="/about" component={About} />
+          <Route path="/new" component={NewEvent} />
           <Route path="/register" component={RegisterPage} />
           <Route path="/login" component={LoginPage} />
           <Route path="/onboarding" component={Onboarding} />

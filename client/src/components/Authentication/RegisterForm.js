@@ -1,5 +1,5 @@
 import React from 'react';
-import { Button, Form, Divider } from 'semantic-ui-react';
+import { Form, Divider } from 'semantic-ui-react';
 
 const RegisterForm = ({ onSubmit, onChange, errors, user }) => (
   <div>
@@ -19,7 +19,7 @@ const RegisterForm = ({ onSubmit, onChange, errors, user }) => (
         type="password"
         value={user.password}
       />
-      <Button fluid type="submit">Submit</Button>
+      <Form.Button type="submit" content="Submit" />
     </Form>
   </div>
 );

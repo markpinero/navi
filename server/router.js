@@ -1,7 +1,8 @@
 const AuthenticationController = require('./controllers/authentication');
-const HighlightController = require('./controllers/highlight');
+const EventController = require('./controllers/event');
 const express = require('express');
 const passport = require('passport');
+
 const passportService = require('./config/passport');
 
 const requireAuth = passport.authenticate('jwt', { session: false });
@@ -17,11 +18,15 @@ module.exports = function(app) {
   authRoutes.post('/register', AuthenticationController.register);
   authRoutes.post('/login', requireLogin, AuthenticationController.login);
 
-  // User
-  //
-  // apiRoutes.use('user', userRoutes);
-  //
-  // userRoutes.post('/post', requireAuth, HighlightController.saveHighlight);
+  // User;
+
+  apiRoutes.use('/user', userRoutes);
+
+  userRoutes.post(
+    '/post',
+    passport.authenticate('jwt', { session: false }),
+    EventController.saveEvent
+  );
 
   app.use('/api', apiRoutes);
 };

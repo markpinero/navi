@@ -44,8 +44,6 @@ class Header extends React.Component {
       </Menu.Item>
     );
 
-    const authenticated = this.props.authenticated;
-
     return (
       <HeaderSegment
         textAlign="center"
@@ -56,7 +54,7 @@ class Header extends React.Component {
         <Container>
           <Menu size="large" secondary>
             <Menu.Item as={Link} to="/">Navi</Menu.Item>
-            {authenticated ? loggedIn : loggedOut}
+            {this.props.authenticated ? loggedIn : loggedOut}
           </Menu>
         </Container>
       </HeaderSegment>
@@ -64,4 +62,8 @@ class Header extends React.Component {
   }
 }
 
-export default connect()(Header);
+const mapStateToProps = (state, ownProps) => ({
+  authenticated: state.auth.authenticated
+});
+
+export default connect(mapStateToProps)(Header);
