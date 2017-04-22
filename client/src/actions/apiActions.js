@@ -32,7 +32,7 @@ export const getAllEvents = () => {
 export const createEvent = event => {
   return dispatch => {
     axios
-      .post('/api/user/save', event, authToken)
+      .post('/api/user/create', event, authToken)
       .then(response => console.log(response));
   };
 };

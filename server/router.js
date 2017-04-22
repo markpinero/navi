@@ -24,9 +24,9 @@ module.exports = function(app) {
 
   userRoutes.get('/get', requireAuth, EventController.getEvent);
   userRoutes.get('/getAll', requireAuth, EventController.getAllEvents);
-  userRoutes.post('/save', requireAuth, EventController.saveEvent);
+  userRoutes.post('/create', requireAuth, EventController.saveEvent);
   userRoutes.delete('/delete', requireAuth, EventController.deleteEvent);
-  userRoutes.put('/put', requireAuth, EventController.updateEvent);
+  userRoutes.put('/update', requireAuth, EventController.updateEvent);
 
   app.use('/api', apiRoutes);
 };

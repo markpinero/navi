@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 
 const Event = props => (
   <div>
-    <Link to={props.id}>{props.event}</Link> - {props.date}
+    <Link to={'/event/' + props._id}>{props.event}</Link> - {props.date}
   </div>
 );
 

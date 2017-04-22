@@ -8,7 +8,7 @@ const EventsList = ({ events }) => (
     {events.map((event, index) => {
       const date = moment(event.date).format('MM-DD-YYYY');
       return (
-        <Event key={index} id={event._id} event={event.event} date={date} />
+        <Event key={index} _id={event._id} event={event.event} date={date} />
       );
     })}
   </div>

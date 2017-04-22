@@ -1,8 +1,7 @@
 import * as types from '../actions/actionTypes';
+import initialState from './initialState';
 
-const initialState = { authenticated: false, errors: {} };
-
-export default function reducers(state = initialState, action) {
+export default function authReducers(state = initialState.auth, action) {
   switch (action.type) {
     case types.AUTHENTICATE_USER:
       return {
