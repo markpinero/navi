@@ -20,13 +20,5 @@ module.exports = function(app) {
 
   // User;
 
-  apiRoutes.use('/user', userRoutes);
-
-  userRoutes.post(
-    '/post',
-    passport.authenticate('jwt', { session: false }),
-    EventController.saveEvent
-  );
-
   app.use('/api', apiRoutes);
 };

@@ -9,6 +9,9 @@ injectGlobal`
   .masthead .ui.menu .ui.button {
     margin-left: 0.5em;
   }
+  .react-datepicker__input-container {
+    display: block !important;
+  }
 `;
 
 export const HeaderSegment = styled(Segment)`

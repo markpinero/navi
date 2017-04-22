@@ -30,6 +30,7 @@ class LoginPage extends React.Component {
   handleSubmit(event) {
     event.preventDefault();
     // TODO: add login
+    console.log('LoginPage()');
     this.props.dispatch(authActions.loginUser(this.state.user));
   }
 

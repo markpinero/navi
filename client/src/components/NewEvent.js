@@ -1,8 +1,11 @@
 import React from 'react';
 import { Divider, Header, Form, Segment } from 'semantic-ui-react';
+import DatePicker from 'react-datepicker';
 import moment from 'moment';
 import * as apiActions from '../actions/apiActions';
 import { connect } from 'react-redux';
+
+import 'react-datepicker/dist/react-datepicker.css';
 
 const categoryOptions = [
   { text: 'Career', value: 'Career' },
@@ -13,9 +16,9 @@ class NewEvent extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      date: '11/13/1987',
+      date: '',
       category: '',
-      event: 'Thing',
+      event: '',
       private: false
     };
     this.handleChange = this.handleChange.bind(this);
@@ -26,6 +29,7 @@ class NewEvent extends React.Component {
   handleChange = (e, { name, value }) => this.setState({ [name]: value });
 
   handleDateChange = e => {
+    console.log(e);
     this.setState({ date: e });
   };
 
@@ -47,12 +51,15 @@ class NewEvent extends React.Component {
       <Segment>
         <Header as="h1">New Event</Header>
         <Form onSubmit={this.handleSubmit}>
-          <Form.Input
-            label="date"
-            onChange={this.handleChange}
-            name="date"
-            value={this.state.date}
-          />
+          <Form.Field>
+            <label>Date</label>
+            <DatePicker
+              selected={this.state.date}
+              name="date"
+              onChange={this.handleDateChange}
+              placeholderText="MM/DD/YYYY"
+            />
+          </Form.Field>
           <Form.Select
             label="category"
             onChange={this.handleChange}

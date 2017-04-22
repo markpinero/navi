@@ -1,7 +1,5 @@
 import React from 'react';
 import { Header, Form, Segment } from 'semantic-ui-react';
-import moment from 'moment';
-import DatePicker from 'react-datepicker';
 import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 import 'react-datepicker/dist/react-datepicker.css';
@@ -12,12 +10,10 @@ class Onboarding extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      dob: '',
       gender: '',
       country: ''
     };
     this.handleChange = this.handleChange.bind(this);
-    this.handleDateChange = this.handleDateChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
   }
 
@@ -30,7 +26,6 @@ class Onboarding extends React.Component {
   handleSubmit(e) {
     e.preventDefault();
     let attributes = {
-      dob: moment(this.state.dob).format('YYYY-MM-DD'),
       gender: this.state.gender,
       country: this.state.country
     };
@@ -42,19 +37,8 @@ class Onboarding extends React.Component {
       <Segment>
         <Header as="h1">Calculate your life expectancy</Header>
         <Form onSubmit={this.handleSubmit}>
-          <Form.Field inline>
-            <label>Date of birth</label>
-            <DatePicker
-              selected={this.state.dob}
-              name="dob"
-              onChange={this.handleDateChange}
-              placeholderText="MM/DD/YYYY"
-            />
-            {/* TODO: detect if MM/DD/YYYY */}
-          </Form.Field>
           <Form.Group widths="equal">
             <Form.Select
-              inline
               label="Gender"
               name="gender"
               options={genderOptions}
