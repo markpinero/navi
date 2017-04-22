@@ -23,7 +23,8 @@ exports.saveEvent = function(req, res, next) {
 };
 
 exports.getEvent = function(req, res, next) {
-  let query = { _id: req.body._id };
+  let query = { _id: req.body.id };
+  // TODO: Query if User && Not Private
   Event.findOne(query, function(err, event) {
     res.status(200).json(event);
   });
@@ -31,12 +32,22 @@ exports.getEvent = function(req, res, next) {
 
 exports.getAllEvents = function(req, res, next) {
   let query = { user: req.user._id };
-  Event.find(query, function(err, events) {
+  Event.find(query).sort('date').exec(function(err, events) {
     console.log(events);
     res.status(200).json(events);
   });
 };
 
+// TODO: NOT WORKING YET
+exports.deleteEvent = function(req, res, next) {
+  let query = { _id: req.body._id };
+  let update = { $pull: { _id: req.body._id } };
+  Event.findOneAndUpdate(query, update, function(err, event) {
+    res.status(200).json(event);
+  });
+};
+
+// TODO: ???
 exports.updateEvent = function(req, res, next) {
   const query = { _id: req.body._id };
   const update = {
@@ -57,14 +68,5 @@ exports.updateEvent = function(req, res, next) {
     }
 
     res.status(201).json({ message: 'updated' });
-  });
-};
-
-// TODO: NOT WORKING YET
-exports.deleteEvent = function(req, res, next) {
-  let query = { _id: req.body._id };
-  let update = { $pull: { _id: req.body._id } };
-  Event.findOneAndUpdate(query, update, function(err, event) {
-    res.status(200).json(event);
   });
 };

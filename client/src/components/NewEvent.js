@@ -8,6 +8,8 @@ import { connect } from 'react-redux';
 import 'react-datepicker/dist/react-datepicker.css';
 
 const categoryOptions = [
+  { text: 'General', value: 'General' },
+  { text: 'School', value: 'School' },
   { text: 'Career', value: 'Career' },
   { text: 'Family', value: 'Family' }
 ];
@@ -16,7 +18,7 @@ class NewEvent extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      date: '',
+      date: null,
       category: '',
       event: '',
       private: false
@@ -38,11 +40,12 @@ class NewEvent extends React.Component {
   handleSubmit(e) {
     e.preventDefault();
     let attributes = {
-      date: moment(this.state.date).format('YYYY-MM-DD'),
+      date: moment(this.state.date, moment.ISO8601),
       category: this.state.category,
       event: this.state.event,
       private: this.state.private
     };
+    console.log(this.state);
     this.props.dispatch(apiActions.createEvent(attributes));
   }
 

@@ -3,6 +3,15 @@ const Schema = mongoose.Schema;
 const bcrypt = require('bcrypt-nodejs');
 
 const UserSchema = new Schema({
+  profile: {
+    firstName: { type: String },
+    lastName: { type: String },
+    dateOfBirth: { type: Date },
+    private: {
+      type: Boolean,
+      default: false
+    }
+  },
   email: {
     type: String,
     lowercase: true,
@@ -12,9 +21,6 @@ const UserSchema = new Schema({
   password: {
     type: String,
     required: true
-  },
-  dateOfBirth: {
-    type: Date
   },
   resetPasswordToken: {
     type: String

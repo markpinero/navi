@@ -10,21 +10,13 @@ class RegisterPage extends React.Component {
     this.state = {
       errors: {},
       user: {
-        firstName: '',
-        lastName: '',
-        dob: '',
         email: '',
         password: ''
       }
     };
     this.handleChange = this.handleChange.bind(this);
-    this.handleDateChange = this.handleDateChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
   }
-
-  handleDateChange = e => {
-    this.setState({ user: { dob: e } });
-  };
 
   handleChange(event) {
     const field = event.target.name;
@@ -46,7 +38,6 @@ class RegisterPage extends React.Component {
       <RegisterForm
         onSubmit={this.handleSubmit}
         onChange={this.handleChange}
-        onDateChange={this.handleDateChange}
         user={this.state.user}
       />
     );
