@@ -1,13 +1,12 @@
-const shortId = require('shortid');
 const mongoose = require('mongoose');
+const autoIncrement = require('mongoose-auto-increment');
 const Schema = mongoose.Schema;
+const config = require('../config/main');
+
+const connection = mongoose.createConnection(config.database);
+autoIncrement.initialize(connection);
 
 const EventSchema = new Schema({
-  _id: {
-    type: String,
-    unique: true,
-    default: shortId.generate
-  },
   user: {
     type: Schema.Types.ObjectId,
     ref: 'User'
@@ -29,5 +28,7 @@ const EventSchema = new Schema({
     default: false
   }
 });
+
+EventSchema.plugin(autoIncrement.plugin, 'Event');
 
 module.exports = mongoose.model('Event', EventSchema);

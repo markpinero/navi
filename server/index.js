@@ -8,6 +8,7 @@ const config = require('./config/main');
 const app = express();
 
 mongoose.connect(config.database);
+mongoose.Promise = global.Promise;
 
 app.use(logger('dev'));
 app.use(bodyParser.json());
