@@ -11,22 +11,21 @@ const requireLogin = passport.authenticate('local', { session: false });
 module.exports = function(app) {
   const apiRoutes = express.Router();
   const authRoutes = express.Router();
-  const userRoutes = express.Router();
+  const eventsRoutes = express.Router();
 
   apiRoutes.use('/auth', authRoutes);
 
   authRoutes.post('/register', AuthenticationController.register);
   authRoutes.post('/login', requireLogin, AuthenticationController.login);
 
-  // User;
+  // User
 
-  apiRoutes.use('/user', userRoutes);
+  apiRoutes.use('/events', eventsRoutes);
 
-  userRoutes.get('/get', requireAuth, EventController.getEvent);
-  userRoutes.get('/getAll', requireAuth, EventController.getAllEvents);
-  userRoutes.post('/create', requireAuth, EventController.saveEvent);
-  userRoutes.delete('/delete', requireAuth, EventController.deleteEvent);
-  userRoutes.put('/update', requireAuth, EventController.updateEvent);
+  eventsRoutes.get('/get/:eventId', requireAuth, EventController.getEvent);
+  eventsRoutes.post('/create', requireAuth, EventController.saveEvent);
+  eventsRoutes.delete('/delete', requireAuth, EventController.deleteEvent);
+  eventsRoutes.put('/update', requireAuth, EventController.updateEvent);
 
   app.use('/api', apiRoutes);
 };

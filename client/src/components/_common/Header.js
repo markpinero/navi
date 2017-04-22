@@ -1,9 +1,9 @@
 import React from 'react';
 import { Menu, Container, Button } from 'semantic-ui-react';
 import { NavLink, Link } from 'react-router-dom';
-import { HeaderSegment } from '../styled';
 import { connect } from 'react-redux';
-import { logoutUser } from '../actions/authActions';
+import { HeaderSegment } from '../../styled';
+import { logoutUser } from '../../actions/authActions';
 
 class Header extends React.Component {
   constructor(props) {
@@ -19,6 +19,7 @@ class Header extends React.Component {
   render() {
     const loggedIn = (
       <Menu.Item position="right">
+        <Button as={NavLink} name="new" to="/new">New</Button>
         <Button as={NavLink} name="profile" to="/profile" color="blue" basic>
           Profile
         </Button>

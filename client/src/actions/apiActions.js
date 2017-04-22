@@ -18,10 +18,19 @@ const authToken = {
   }
 };
 
+export const getEvent = eventId => {
+  console.log(eventId);
+  return dispatch => {
+    axios
+      .get(`/api/events/get/${eventId}`, authToken)
+      .then(response => console.log(response));
+  };
+};
+
 export const getAllEvents = () => {
   return dispatch => {
     axios
-      .get('/api/user/getAll', authToken)
+      .get('/api/events/get/all', authToken)
       .then(response => {
         dispatch(getAllEventsSuccess(response.data));
       })
@@ -32,7 +41,7 @@ export const getAllEvents = () => {
 export const createEvent = event => {
   return dispatch => {
     axios
-      .post('/api/user/create', event, authToken)
+      .post('/api/events/create', event, authToken)
       .then(response => console.log(response));
   };
 };
@@ -40,7 +49,7 @@ export const createEvent = event => {
 export const deleteEvent = event => {
   return dispatch => {
     axios
-      .delete('/api/user/delete', event, authToken)
+      .delete('/api/events/delete', event, authToken)
       .then(response => console.log(response));
   };
 };
@@ -48,7 +57,7 @@ export const deleteEvent = event => {
 export const updateEvent = event => {
   return dispatch => {
     axios
-      .update('/api/user/update', event, authToken)
+      .update('/api/events/update', event, authToken)
       .then(response => console.log(response));
   };
 };

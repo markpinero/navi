@@ -19,24 +19,25 @@ exports.saveEvent = function(req, res, next) {
 };
 
 exports.getEvent = function(req, res, next) {
-  let query = { _id: req.body._id };
-  // TODO: Query if User && Not Private
-  Event.findOne(query, function(err, event) {
-    if (err) {
-      res.status(400).send({ error: err });
-    }
-    res.status(200).json(event);
-  });
-};
-
-exports.getAllEvents = function(req, res, next) {
-  let query = { user: req.user._id };
-  Event.find(query).sort('date').exec(function(err, events) {
-    if (err) {
-      res.status(400).send({ error: err });
-    }
-    res.status(200).json(events);
-  });
+  if (req.params.eventId === 'all') {
+    let query = { user: req.user._id };
+    Event.find(query).sort('date').exec(function(err, events) {
+      if (err) {
+        res.status(400).send({ error: err });
+      }
+      res.status(200).json(events);
+    });
+  } else {
+    let query = { _id: parseInt(req.params.eventId, 10) };
+    // TODO: Query if User && Not Private
+    Event.findOne(query, function(err, event) {
+      if (err) {
+        res.status(400).send({ error: err });
+      }
+      console.log(event);
+      res.status(200).json(event);
+    });
+  }
 };
 
 // TODO: Get event from week. Untested
