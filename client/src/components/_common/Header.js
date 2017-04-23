@@ -1,9 +1,11 @@
 import React from 'react';
 import { Menu, Container, Button } from 'semantic-ui-react';
 import { NavLink, Link } from 'react-router-dom';
+
 import { connect } from 'react-redux';
-import { HeaderSegment } from '../../styled';
 import { logoutUser } from '../../actions/authActions';
+
+import { HeaderSegment } from './styles';
 
 class Header extends React.Component {
   constructor(props) {
@@ -11,10 +13,7 @@ class Header extends React.Component {
     this.handleLogout = this.handleLogout.bind(this);
   }
 
-  handleLogout() {
-    console.log('logout');
-    this.props.dispatch(logoutUser());
-  }
+  handleLogout = () => this.props.dispatch(logoutUser());
 
   render() {
     const loggedIn = (

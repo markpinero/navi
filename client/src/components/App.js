@@ -1,17 +1,17 @@
 import React, { Component } from 'react';
 import { Container } from 'semantic-ui-react';
 import { Route, withRouter } from 'react-router-dom';
-import About from './About';
-import Dashboard from './Dashboard';
+import About from './About/About';
+import EventGridContainer from './EventGrid/EventGridContainer';
 import Header from './_common/Header';
-import RegisterPage from './Authentication/RegisterPage';
-import LandingPage from './LandingPage';
-import LoginPage from './Authentication/LoginPage';
-import Onboarding from './Onboarding';
-import Profile from './Profile';
+import RegisterContainer from './Register/RegisterContainer';
+import LandingContainer from './Landing/LandingContainer';
+import LoginContainer from './Login/LoginContainer';
+import Onboarding from './Onboarding/Onboarding';
+import Profile from './Profile/Profile';
 import { connect } from 'react-redux';
-import NewEvent from './NewEvent';
-import ShowEvent from './ShowEvent';
+import NewEvent from './NewEvent/NewEvent';
+import ShowEvent from './ShowEvent/ShowEvent';
 
 class App extends Component {
   render() {
@@ -23,13 +23,13 @@ class App extends Component {
           <Route
             exact
             path="/"
-            component={loggedIn ? Dashboard : LandingPage}
+            component={loggedIn ? EventGridContainer : LandingContainer}
           />
           <Route exact path="/event/:id" component={ShowEvent} />
           <Route path="/about" component={About} />
           <Route path="/new" component={NewEvent} />
-          <Route path="/register" component={RegisterPage} />
-          <Route path="/login" component={LoginPage} />
+          <Route path="/register" component={RegisterContainer} />
+          <Route path="/login" component={LoginContainer} />
           <Route path="/onboarding" component={Onboarding} />
           <Route path="/profile" component={Profile} />
         </Container>

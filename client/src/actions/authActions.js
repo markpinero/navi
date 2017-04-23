@@ -27,7 +27,6 @@ export const registerUser = ({ email, password }) => {
 };
 
 export const loginUser = ({ email, password }) => {
-  console.log('loginUser()');
   return dispatch => {
     axios.post('/api/auth/login', { email, password }).then(response => {
       cookie.save('token', response.data.token, { path: '/' });

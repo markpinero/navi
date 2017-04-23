@@ -32,3 +32,5 @@ const EventSchema = new Schema({
 EventSchema.plugin(autoIncrement.plugin, 'Event');
 
 module.exports = mongoose.model('Event', EventSchema);
+
+// TODO: Encrypt event title

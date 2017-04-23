@@ -1,7 +1,7 @@
 import React from 'react';
 import { Segment } from 'semantic-ui-react';
 import { connect } from 'react-redux';
-import * as apiActions from '../actions/apiActions';
+import * as apiActions from '../../actions/apiActions';
 
 class ShowEvent extends React.Component {
   componentDidMount() {
