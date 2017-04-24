@@ -4,9 +4,9 @@ import { Route, withRouter } from 'react-router-dom';
 import About from './About/About';
 import EventGridContainer from './EventGrid/EventGridContainer';
 import Header from './_common/Header';
-import RegisterContainer from './Register/RegisterContainer';
+import SignUpContainer from './SignUp/SignUpContainer';
 import LandingContainer from './Landing/LandingContainer';
-import LoginContainer from './Login/LoginContainer';
+import SignInContainer from './SignIn/SignInContainer';
 import Onboarding from './Onboarding/Onboarding';
 import Profile from './Profile/Profile';
 import { connect } from 'react-redux';
@@ -28,8 +28,8 @@ class App extends Component {
           <Route exact path="/event/:id" component={ShowEvent} />
           <Route path="/about" component={About} />
           <Route path="/new" component={NewEvent} />
-          <Route path="/register" component={RegisterContainer} />
-          <Route path="/login" component={LoginContainer} />
+          <Route path="/signup" component={SignUpContainer} />
+          <Route path="/signin" component={SignInContainer} />
           <Route path="/onboarding" component={Onboarding} />
           <Route path="/profile" component={Profile} />
         </Container>

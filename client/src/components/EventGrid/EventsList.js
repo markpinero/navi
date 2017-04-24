@@ -15,7 +15,8 @@ const EventsList = ({ events }) => (
 );
 
 const mapStateToProps = state => ({
-  events: state.api.events
+  events: state.api.events,
+  user: state.api.user
 });
 
 export default connect(mapStateToProps)(EventsList);

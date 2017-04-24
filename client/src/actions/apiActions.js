@@ -2,6 +2,11 @@ import * as types from './actionTypes';
 import axios from 'axios';
 import cookie from 'react-cookie';
 
+export const getUserDetailsSuccess = user => ({
+  type: types.GET_USER_DETAILS_SUCCESS,
+  user
+});
+
 export const getAllEventsSuccess = events => ({
   type: types.GET_ALL_EVENTS_SUCCESS,
   events
@@ -24,6 +29,14 @@ export const getEvent = eventId => {
     axios
       .get(`/api/events/get/${eventId}`, authToken)
       .then(response => console.log(response));
+  };
+};
+
+export const getUserDetails = () => {
+  return dispatch => {
+    axios.get('/api/user/get', authToken).then(response => {
+      dispatch(getUserDetailsSuccess(response.data));
+    });
   };
 };
 

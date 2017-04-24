@@ -4,6 +4,7 @@ export default {
     errors: {}
   },
   api: {
+    user: {},
     events: [],
     errors: {}
   }

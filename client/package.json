@@ -8,10 +8,9 @@
     "history": "^4.6.1",
     "moment": "^2.18.1",
     "react": "^15.5.4",
-    "react-addons-shallow-compare": "^15.5.2",
     "react-cookie": "^1.0.5",
     "react-datepicker": "^0.46.0",
-    "react-dates": "^10.1.1",
+    "react-document-title": "^2.0.3",
     "react-dom": "^15.5.4",
     "react-redux": "^5.0.4",
     "react-router": "^4.1.1",
@@ -20,12 +19,12 @@
     "redux-devtools-extension": "^2.13.0",
     "redux-form": "^6.6.3",
     "redux-thunk": "^2.2.0",
-    "semantic-ui-css": "^2.2.10",
     "semantic-ui-react": "^0.68.0",
     "styled-components": "^1.4.5"
   },
   "devDependencies": {
-    "react-scripts": "0.9.5"
+    "react-scripts": "0.9.5",
+    "semantic-ui": "^2.2.10"
   },
   "scripts": {
     "start": "react-scripts start",

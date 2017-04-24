@@ -8,6 +8,11 @@ export default function apiReducers(state = initialState.api, action) {
         ...state,
         events: action.events
       };
+    case types.GET_USER_DETAILS_SUCCESS:
+      return {
+        ...state,
+        user: action.user
+      };
     default:
       return state;
   }
