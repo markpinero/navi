@@ -29,7 +29,6 @@ exports.getEvent = function(req, res, next) {
     });
   } else {
     let query = { _id: parseInt(req.params.eventId, 10) };
-    // TODO: Query if User && Not Private
     Event.findOne(query, function(err, event) {
       if (err) {
         res.status(400).send({ error: err });
@@ -40,7 +39,6 @@ exports.getEvent = function(req, res, next) {
   }
 };
 
-// TODO: Get event from week. Untested
 exports.getWeekEvents = function(req, res, next) {
   let query = { user: req.user._id };
   let filter = {

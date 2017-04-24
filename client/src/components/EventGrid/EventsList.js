@@ -1,21 +1,30 @@
 import React from 'react';
-import Event from './Event';
 import moment from 'moment';
 import { connect } from 'react-redux';
+import Year from './Year';
+import Week from './Week';
+// import * as apiActions from '../../actions/apiActions';
 
-const EventsList = ({ events }) => (
-  <div>
-    {events.map((event, index) => {
-      const date = moment(event.date).format('MM-DD-YYYY');
-      return (
-        <Event key={index} _id={event._id} event={event.event} date={date} />
+class EventsList extends React.Component {
+  render() {
+    const data = [];
+    const years = moment().diff(this.props.user.dateOfBirth, 'years');
+    for (let age = 0; age <= years; age++) {
+      let thisYear = moment(this.props.user.dateOfBirth)
+        .add(age, 'year')
+        .get('year');
+      data.push(
+        <Year key={age} age={age}>
+          <Week age={age} year={thisYear} />
+        </Year>
       );
-    })}
-  </div>
-);
+    }
+
+    return <div style={{ wordWrap: 'break-word' }}>{data}</div>;
+  }
+}
 
 const mapStateToProps = state => ({
-  events: state.api.events,
   user: state.api.user
 });
 

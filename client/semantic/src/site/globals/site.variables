@@ -15,3 +15,5 @@
 
 @googleProtocol    : 'https://';
 @googleFontRequest : '@{googleFontName}:@{googleFontSizes}&subset=@{googleSubset}';
+
+@pageBackground    : #FAFAFA;

@@ -1,3 +1,12 @@
-.title {
-  font-size: 10em !important;
+.box {
+  display: inline-block;
+  border-radius: 10px;
+  width: 19px;
+  height: 19px;
+  border: 1px black solid;
+  margin: 1px;
+}
+
+.event {
+  background: #000;
 }

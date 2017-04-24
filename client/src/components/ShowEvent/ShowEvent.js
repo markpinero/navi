@@ -19,7 +19,6 @@ class ShowEvent extends React.Component {
 
 const mapStateToProps = (state, ownProps) => {
   const eventId = ownProps.match.params.id;
-  // TODO: if no state, fetch getEvent()
 
   return { eventId: eventId };
 };

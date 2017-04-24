@@ -6,15 +6,15 @@ import * as apiActions from '../../actions/apiActions';
 
 class EventGridContainer extends React.Component {
   componentDidMount() {
-    this.props.dispatch(apiActions.getUserDetails());
+    this.props.dispatch(apiActions.getEventGrid());
   }
 
   render() {
     return (
-      <div>
-        <h1>EventGridContainer</h1>
+      <Segment>
+        <h1>Timeline</h1>
         <EventsList />
-      </div>
+      </Segment>
     );
   }
 }

@@ -1,12 +1,11 @@
 import React from 'react';
-import { Menu, Container, Button, Segment, Icon } from 'semantic-ui-react';
-import { NavLink, Link } from 'react-router-dom';
+import { Menu, Button, Segment, Icon } from 'semantic-ui-react';
+import { NavLink } from 'react-router-dom';
 
 import { connect } from 'react-redux';
 import { logoutUser } from '../../actions/authActions';
 
 import './styles.css';
-// import { HeaderSegment } from './styles';
 
 class Header extends React.Component {
   constructor(props) {
@@ -16,38 +15,42 @@ class Header extends React.Component {
 
   handleLogout = () => this.props.dispatch(logoutUser());
 
+  renderMenu = () => {
+    if (this.props.authenticated) {
+      return (
+        <Menu.Menu position="right">
+          <Menu.Item as={NavLink} name="new" to="/new">New</Menu.Item>
+          <Menu.Item as={NavLink} name="profile" to="/profile">
+            Profile
+          </Menu.Item>
+          <Menu.Item
+            as={NavLink}
+            name="logout"
+            to="/logout"
+            onClick={this.handleLogout}>
+            Logout
+          </Menu.Item>
+        </Menu.Menu>
+      );
+    } else {
+      return (
+        <Menu.Item position="right">
+          <Button as={NavLink} name="signin" to="/signin" color="blue" basic>
+            Sign In
+          </Button>
+        </Menu.Item>
+      );
+    }
+  };
+
   render() {
-    const loggedIn = (
-      <Menu.Menu position="right">
-        <Menu.Item as={NavLink} name="new" to="/new">New</Menu.Item>
-        <Menu.Item as={NavLink} name="profile" to="/profile">
-          Profile
-        </Menu.Item>
-        <Menu.Item
-          as={NavLink}
-          name="logout"
-          to="/logout"
-          onClick={this.handleLogout}>
-          Logout
-        </Menu.Item>
-      </Menu.Menu>
-    );
-
-    const loggedOut = (
-      <Menu.Item position="right">
-        <Button as={Link} name="signin" to="/signin" color="blue" basic>
-          Sign In
-        </Button>
-      </Menu.Item>
-    );
-
     return (
-      <Segment as="header" className="masthead">
+      <Segment as="header" className="masthead" attached>
         <Menu secondary as="header" size="huge">
-          <Menu.Item as={Link} name="home" to="/">
+          <Menu.Item as={NavLink} name="home" to="/">
             <Icon name="block layout" />
           </Menu.Item>
-          {this.props.authenticated ? loggedIn : loggedOut}
+          {this.renderMenu()}
         </Menu>
       </Segment>
     );
