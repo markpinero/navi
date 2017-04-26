@@ -1,12 +1,32 @@
 .box {
+  box-sizing: border-box;
   display: inline-block;
-  border-radius: 10px;
+  background: #efe;
   width: 19px;
   height: 19px;
-  border: 1px black solid;
   margin: 1px;
+  float: left;
+}
+
+.general {
+  background: #fff;
+  border: 1px #ccc solid;
 }
 
 .event {
   background: #000;
+}
+
+.clear:after {
+  content: '';
+  display: table;
+  clear: both;
+}
+
+.birthday {
+  background: green;
+}
+
+.school {
+  background: lightblue;
 }
