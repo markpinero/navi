@@ -3,7 +3,7 @@ import { Menu, Button, Segment, Icon } from 'semantic-ui-react';
 import { NavLink } from 'react-router-dom';
 
 import { connect } from 'react-redux';
-import { logoutUser } from '../../actions/authActions';
+import { logoutUser } from '../../../actions/authActions';
 
 import './styles.css';
 

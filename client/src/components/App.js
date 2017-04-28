@@ -1,38 +1,25 @@
-import React, { Component } from 'react';
-import { Container } from 'semantic-ui-react';
+import React from 'react';
 import { Route, withRouter } from 'react-router-dom';
+import Header from './_common/Header/Header';
 import About from './About/About';
-import EventGridContainer from './EventGrid/EventGridContainer';
-import Header from './_common/Header';
-import SignUpContainer from './SignUp/SignUpContainer';
-import LandingContainer from './Landing/LandingContainer';
-import SignInContainer from './SignIn/SignInContainer';
-import Onboarding from './Onboarding/Onboarding';
-import Profile from './Profile/Profile';
-import { connect } from 'react-redux';
 import NewEvent from './NewEvent/NewEvent';
-import ShowEvent from './ShowEvent/ShowEvent';
+import EventGrid from './EventGrid/EventGrid';
+import SignUpContainer from './SignUp/SignUpContainer';
+import SignInContainer from './SignIn/SignInContainer';
 
-class App extends Component {
+import { connect } from 'react-redux';
+
+class App extends React.Component {
   render() {
     const loggedIn = this.props.authenticated;
+
     return (
       <div>
-        <Header authenticated={loggedIn} />
-        <Container>
-          <Route
-            exact
-            path="/"
-            component={loggedIn ? EventGridContainer : LandingContainer}
-          />
-          <Route exact path="/event/:id" component={ShowEvent} />
-          <Route path="/about" component={About} />
-          <Route path="/new" component={NewEvent} />
-          <Route path="/signup" component={SignUpContainer} />
-          <Route path="/signin" component={SignInContainer} />
-          <Route path="/onboarding" component={Onboarding} />
-          <Route path="/profile" component={Profile} />
-        </Container>
+        <Header />
+        <Route exact path="/" component={loggedIn ? EventGrid : About} />
+        <Route path="/new" component={NewEvent} />
+        <Route path="/signup" component={SignUpContainer} />
+        <Route path="/signin" component={SignInContainer} />
       </div>
     );
   }

@@ -74,10 +74,3 @@ export const updateEvent = event => {
       .then(response => console.log(response));
   };
 };
-
-export const getEventGrid = () => {
-  return dispatch => {
-    dispatch(getUserDetails());
-    dispatch(getAllEvents());
-  };
-};

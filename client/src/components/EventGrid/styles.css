@@ -1,11 +1,21 @@
-.box {
-  box-sizing: border-box;
-  display: inline-block;
-  background: #efe;
+.sq {
+  float: left;
   width: 19px;
   height: 19px;
   margin: 1px;
-  float: left;
+  background: lightblue;
+}
+
+.birthday {
+  border: 1px lightblue solid;
+}
+
+.career {
+  background: navy;
+}
+
+.school {
+  background: lime;
 }
 
 .general {
@@ -13,20 +23,14 @@
   border: 1px #ccc solid;
 }
 
-.event {
-  background: #000;
+.personal {
+  background: pink;
 }
 
-.clear:after {
-  content: '';
-  display: table;
-  clear: both;
-}
-
-.birthday {
+.now {
   background: green;
 }
 
-.school {
-  background: lightblue;
+.family {
+  background: yellow;
 }

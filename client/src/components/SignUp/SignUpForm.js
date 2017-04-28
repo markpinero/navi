@@ -1,12 +1,11 @@
 import React from 'react';
 // import DatePicker from 'react-datepicker';
 
-import { Segment, Form, Divider } from 'semantic-ui-react';
+import { Form } from 'semantic-ui-react';
 
 const SignUpForm = ({ onSubmit, onChange, onDateChange, errors, user }) => (
-  <Segment>
+  <div>
     <h1>Register</h1>
-    <Divider />
     <Form action="/" onSubmit={onSubmit}>
       {/* <Form.Group widths="equal">
         <Form.Input
@@ -50,7 +49,7 @@ const SignUpForm = ({ onSubmit, onChange, onDateChange, errors, user }) => (
       </Form.Group>
 
     </Form>
-  </Segment>
+  </div>
 );
 
 export default SignUpForm;

@@ -663,6 +663,12 @@ input::selection {
 /*******************************
          Site Overrides
 *******************************/
+
+@media only screen and (min-width: 1200px) {
+  .ui.container {
+    width: 1100px !important;
+  }
+}
 /*!
  * # Semantic UI 2.2.10 - Button
  * http://github.com/semantic-org/semantic-ui/
