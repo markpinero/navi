@@ -33,7 +33,6 @@ exports.getEvent = function(req, res, next) {
       if (err) {
         res.status(400).send({ error: err });
       }
-      console.log(event);
       res.status(200).json(event);
     });
   }
@@ -61,7 +60,6 @@ exports.getWeekEvents = function(req, res, next) {
 exports.deleteEvent = function(req, res, next) {
   let query = { _id: req.body._id };
   Event.remove(query, function(err, event) {
-    console.log(query, event);
     if (err) {
       res.status(400).send({ error: err });
     }

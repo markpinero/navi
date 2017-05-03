@@ -6,7 +6,7 @@ const UserSchema = new Schema({
   profile: {
     firstName: { type: String },
     lastName: { type: String },
-    dateOfBirth: { type: Date },
+    born: { type: Date },
     private: {
       type: Boolean,
       default: false

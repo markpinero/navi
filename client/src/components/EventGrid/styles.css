@@ -3,11 +3,20 @@
   width: 19px;
   height: 19px;
   margin: 1px;
-  background: lightblue;
+  background: #fff;
+  box-sizing: border-box;
+}
+
+.alive {
+  background: #efe;
+}
+
+.alive.birthday {
+  border: 1px lightblue solid;
 }
 
 .birthday {
-  border: 1px lightblue solid;
+  border: 1px #ccc dashed;
 }
 
 .career {

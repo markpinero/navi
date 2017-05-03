@@ -1,8 +1,8 @@
 import React from 'react';
 import SignUpForm from './SignUpForm';
+import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 import * as authActions from '../../actions/authActions';
-// import moment from 'moment';
 
 class SignUpPage extends React.Component {
   constructor(props) {
@@ -30,7 +30,7 @@ class SignUpPage extends React.Component {
 
   handleSubmit(event) {
     event.preventDefault();
-    this.props.dispatch(authActions.registerUser(this.state.user));
+    this.props.actions.registerUser(this.state.user);
   }
 
   render() {
@@ -48,4 +48,8 @@ const mapStateToProps = (state, ownProps) => ({
   user: state.users
 });
 
-export default connect(mapStateToProps)(SignUpPage);
+const mapDispatchToProps = dispatch => ({
+  actions: bindActionCreators(authActions, dispatch)
+});
+
+export default connect(mapStateToProps, mapDispatchToProps)(SignUpPage);

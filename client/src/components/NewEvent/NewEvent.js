@@ -2,8 +2,8 @@ import React from 'react';
 import { Container, Divider, Header, Form, Segment } from 'semantic-ui-react';
 import DatePicker from 'react-datepicker';
 import moment from 'moment';
-import * as apiActions from '../../actions/apiActions';
 import { connect } from 'react-redux';
+import * as apiActions from '../../actions/apiActions';
 
 import 'react-datepicker/dist/react-datepicker.css';
 

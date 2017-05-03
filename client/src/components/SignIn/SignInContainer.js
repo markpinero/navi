@@ -33,7 +33,6 @@ class SignInPage extends React.Component {
       email: this.state.user.email.toLowerCase(),
       password: this.state.user.password
     };
-    console.log(this.state);
     console.log(loginCredentials);
     this.props.dispatch(authActions.loginUser(loginCredentials));
   }

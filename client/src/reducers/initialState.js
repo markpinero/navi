@@ -7,5 +7,8 @@ export default {
     user: {},
     events: [],
     errors: {}
+  },
+  ui: {
+    requests: 0
   }
 };

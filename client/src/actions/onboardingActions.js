@@ -20,7 +20,6 @@ export const calcLifeExpectancy = ({ dob, gender, country }) => {
       }
     })
       .then(response => {
-        console.log(response);
         return moment('1987-11-13')
           .add(response.data.total_life_expectancy, 'years')
           .format('YYYY-MM-DD');

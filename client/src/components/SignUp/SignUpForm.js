@@ -1,36 +1,10 @@
 import React from 'react';
-// import DatePicker from 'react-datepicker';
-
 import { Form } from 'semantic-ui-react';
 
 const SignUpForm = ({ onSubmit, onChange, onDateChange, errors, user }) => (
   <div>
-    <h1>Register</h1>
+    <h1>Sign Up</h1>
     <Form action="/" onSubmit={onSubmit}>
-      {/* <Form.Group widths="equal">
-        <Form.Input
-          label="First Name"
-          onChange={onChange}
-          name="firstName"
-          value={user.firstName}
-        />
-        <Form.Input
-          label="Last Name"
-          onChange={onChange}
-          name="lastName"
-          value={user.lastName}
-        />
-        <Form.Field>
-          <label>Date of birth</label>
-          <DatePicker
-            selected={user.dob}
-            name="dob"
-            onDateChange={onDateChange}
-            placeholderText="MM/DD/YYYY"
-          />
-        </Form.Field>
-      </Form.Group>
-      <Divider /> */}
       <Form.Group widths="equal">
         <Form.Input
           label="E-Mail"

@@ -11,12 +11,14 @@ import { connect } from 'react-redux';
 
 class App extends React.Component {
   render() {
-    const loggedIn = this.props.authenticated;
-
     return (
-      <div>
+      <div className="wrapper">
         <Header />
-        <Route exact path="/" component={loggedIn ? EventGrid : About} />
+        <Route
+          exact
+          path="/"
+          component={this.props.authenticated ? EventGrid : About}
+        />
         <Route path="/new" component={NewEvent} />
         <Route path="/signup" component={SignUpContainer} />
         <Route path="/signin" component={SignInContainer} />
@@ -25,7 +27,7 @@ class App extends React.Component {
   }
 }
 
-const mapStateToProps = (state, ownProps) => ({
+const mapStateToProps = state => ({
   authenticated: state.auth.authenticated
 });
 
