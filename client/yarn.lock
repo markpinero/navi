@@ -3376,6 +3376,13 @@ inquirer@~0.10:
     strip-ansi "^3.0.0"
     through "^2.3.6"
 
+instadate@^0.5.0:
+  version "0.5.0"
+  resolved "https://registry.yarnpkg.com/instadate/-/instadate-0.5.0.tgz#0564cba690988042db771bf92abc989aad3eaaaf"
+  dependencies:
+    lodash.difference "^4.0.1"
+    math-trunc "^1.0.0"
+
 interpret@^0.6.4:
   version "0.6.6"
   resolved "https://registry.yarnpkg.com/interpret/-/interpret-0.6.6.tgz#fecd7a18e7ce5ca6abfb953e1f86213a49f1625b"
@@ -4266,6 +4273,10 @@ lodash.defaults@~2.4.1:
     lodash._objecttypes "~2.4.1"
     lodash.keys "~2.4.1"
 
+lodash.difference@^4.0.1:
+  version "4.5.0"
+  resolved "https://registry.yarnpkg.com/lodash.difference/-/lodash.difference-4.5.0.tgz#9ccb4e505d486b91651345772885a2df27fd017c"
+
 lodash.escape@^3.0.0:
   version "3.2.0"
   resolved "https://registry.yarnpkg.com/lodash.escape/-/lodash.escape-3.2.0.tgz#995ee0dc18c1b48cc92effae71a10aab5b487698"
@@ -4505,6 +4516,10 @@ marked@^0.3.6:
 math-expression-evaluator@^1.2.14:
   version "1.2.16"
   resolved "https://registry.yarnpkg.com/math-expression-evaluator/-/math-expression-evaluator-1.2.16.tgz#b357fa1ca9faefb8e48d10c14ef2bcb2d9f0a7c9"
+
+math-trunc@^1.0.0:
+  version "1.0.1"
+  resolved "https://registry.yarnpkg.com/math-trunc/-/math-trunc-1.0.1.tgz#dbdbba562ba8deff5faca776b185e8a7b4235c1f"
 
 media-typer@0.3.0:
   version "0.3.0"

@@ -1,27 +1,26 @@
 import React from 'react';
 import { Route, withRouter } from 'react-router-dom';
-import Header from './_common/Header/Header';
-import About from './About/About';
-import NewEvent from './NewEvent/NewEvent';
-import EventGrid from './EventGrid/EventGrid';
-import SignUpContainer from './SignUp/SignUpContainer';
+import Header from './common/Header';
+import EventGrid from './EventGrid/EventGrid-new';
 import SignInContainer from './SignIn/SignInContainer';
-
+import SignUpContainer from './SignUp/SignUpContainer';
+import { Container } from 'semantic-ui-react';
 import { connect } from 'react-redux';
 
 class App extends React.Component {
   render() {
     return (
       <div className="wrapper">
-        <Header />
-        <Route
-          exact
-          path="/"
-          component={this.props.authenticated ? EventGrid : About}
-        />
-        <Route path="/new" component={NewEvent} />
-        <Route path="/signup" component={SignUpContainer} />
-        <Route path="/signin" component={SignInContainer} />
+        <Header authenticated={this.props.authenticated} />
+        <Container as="section">
+          <Route
+            exact
+            path="/"
+            component={this.props.authenticated ? EventGrid : SignInContainer}
+          />
+          <Route path="/signup" component={SignUpContainer} />
+          <Route path="/signin" component={SignInContainer} />
+        </Container>
       </div>
     );
   }

@@ -32,11 +32,13 @@ class EventGrid extends React.Component {
     return weeks;
   };
 
-  renderYear = (age, events) => (
-    <span key={age}>
-      {this.renderWeek({ age, events })}
-    </span>
-  );
+  renderYear = (age, year, events) => {
+    return (
+      <span key={age} id={year}>
+        {this.renderWeek({ age, events })}
+      </span>
+    );
+  };
 
   render() {
     if (this.props.requests) {
@@ -44,7 +46,8 @@ class EventGrid extends React.Component {
     } else {
       let years = [];
       for (let age = 0; age <= 100; age++) {
-        years.push(this.renderYear(age, this.props.events));
+        const thisYear = new Date(this.props.user.born).getFullYear() + age;
+        years.push(this.renderYear(age, thisYear, this.props.events));
       }
       return <Container><div className="event-grid">{years}</div></Container>;
     }

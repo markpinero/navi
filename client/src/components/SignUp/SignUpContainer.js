@@ -1,55 +1,56 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
+import { Grid, Segment, Header } from 'semantic-ui-react';
 import SignUpForm from './SignUpForm';
-import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 import * as authActions from '../../actions/authActions';
 
-class SignUpPage extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      errors: {},
-      user: {
-        email: '',
-        password: ''
-      }
-    };
-    this.handleChange = this.handleChange.bind(this);
-    this.handleSubmit = this.handleSubmit.bind(this);
-  }
+class SignUpContainer extends React.Component {
+  state = {
+    errors: {},
+    user: {
+      firstName: '',
+      lastName: '',
+      email: '',
+      password: ''
+    }
+  };
 
-  handleChange(event) {
-    const field = event.target.name;
+  handleChange = event => {
     const user = this.state.user;
+    const field = event.target.name;
     user[field] = event.target.value;
 
     this.setState({
       user
     });
-  }
+  };
 
-  handleSubmit(event) {
+  handleSubmit = event => {
     event.preventDefault();
-    this.props.actions.registerUser(this.state.user);
-  }
+    this.props.dispatch(authActions.registerUser(this.state.user));
+  };
 
   render() {
     return (
-      <SignUpForm
-        onSubmit={this.handleSubmit}
-        onChange={this.handleChange}
-        user={this.state.user}
-      />
+      <Grid container centered>
+        <Grid.Column className="signup">
+          <Header as="h1">Sign Up</Header>
+          <Segment stacked>
+            <SignUpForm
+              onChange={this.handleChange}
+              onSubmit={this.handleSubmit}
+              errors={this.state.errors}
+              user={this.state.user}
+            />
+          </Segment>
+          <Segment textAlign="center">
+            Already have an account? <Link to="/signin">Sign In</Link>
+          </Segment>
+        </Grid.Column>
+      </Grid>
     );
   }
 }
 
-const mapStateToProps = (state, ownProps) => ({
-  user: state.users
-});
-
-const mapDispatchToProps = dispatch => ({
-  actions: bindActionCreators(authActions, dispatch)
-});
-
-export default connect(mapStateToProps, mapDispatchToProps)(SignUpPage);
+export default connect()(SignUpContainer);

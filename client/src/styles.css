@@ -1,17 +1,17 @@
-body {
-  background: #fff;
-}
-
 .wrapper {
   background: #eee;
   /*background: linear-gradient(#f8fafc,#f4f8fb);*/
 }
 
-.event-grid {
-  padding: 2em 0;
+.signup, .signin {
+  max-width: 500px;
 }
 
-.event-grid:after {
+section.container {
+  padding: 2em 0 !important;
+}
+
+section.container:after {
   clear: both;
   content: '';
   display: table;
