@@ -1,11 +1,11 @@
-import React from 'react';
-import { Route, withRouter } from 'react-router-dom';
-import Header from './common/Header';
-import EventGrid from './EventGrid/EventGrid-new';
-import SignInContainer from './SignIn/SignInContainer';
-import SignUpContainer from './SignUp/SignUpContainer';
-import { Container } from 'semantic-ui-react';
-import { connect } from 'react-redux';
+import React from "react";
+import { Route, withRouter } from "react-router-dom";
+import Header from "./common/Header";
+import EventGrid from "./EventGrid/EventGrid";
+import SignInContainer from "./SignIn/SignInContainer";
+import SignUpContainer from "./SignUp/SignUpContainer";
+import { Container } from "semantic-ui-react";
+import { connect } from "react-redux";
 
 class App extends React.Component {
   render() {

@@ -5,7 +5,7 @@ const config = require('../config/main');
 
 function generateToken(user) {
   return jwt.sign(user, config.secret, {
-    expiresIn: 10080000
+    expiresIn: '7d'
   });
 }
 
@@ -27,16 +27,21 @@ exports.login = function(req, res, next) {
 };
 
 exports.register = function(req, res, next) {
-  console.log(req.body);
   const email = req.body.email;
   const password = req.body.password;
+  const firstName = req.body.firstName;
+  const lastName = req.body.lastName;
 
   if (!email) {
-    return res.status(422).send({ error: 'email' });
+    return res.status(422).send({ error: 'You must enter an e-mail address.' });
   }
 
   if (!password) {
-    return res.status(422).send({ error: 'pass' });
+    return res.status(422).send({ error: 'You must enter a password.' });
+  }
+
+  if (!firstName || !lastName) {
+    return res.status(422).send({ error: 'You must enter your full name.' });
   }
 
   User.findOne({ email }, function(err, existingUser) {
@@ -45,12 +50,15 @@ exports.register = function(req, res, next) {
     }
 
     if (existingUser) {
-      return res.status(422).send({ error: 'exsting' });
+      return res
+        .status(422)
+        .send({ error: 'That e-mail address is already in use.' });
     }
 
     const user = new User({
       email,
-      password
+      password,
+      profile: { firstName, lastName }
     });
 
     user.save(function(err, user) {

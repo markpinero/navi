@@ -1,18 +1,20 @@
 .sq {
-  float: left;
-  width: 19px;
-  height: 19px;
-  margin: 1px;
+  flex: 1 1 auto;
+  height: 50px;
+  border-radius: 5px;
+  margin: 10px;
   background: #fff;
-  box-sizing: border-box;
+  border: 1px #eee solid;
+  box-sizing: border-box !important;
 }
 
 .alive {
+  border-top: 1px solid #21BA45;
   background: #efe;
 }
 
 .alive.birthday {
-  border: 1px lightblue solid;
+  border: 1px #21BA45 solid;
 }
 
 .birthday {
@@ -24,12 +26,12 @@
 }
 
 .school {
-  background: lime;
+  background: lime !important;
 }
 
 .general {
   background: #fff;
-  border: 1px #ccc solid;
+  border: 1px #21BA45 solid;
 }
 
 .personal {
@@ -42,4 +44,9 @@
 
 .family {
   background: yellow;
+}
+
+.year-grid {
+  display: flex;
+  flex-wrap: wrap;
 }

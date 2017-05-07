@@ -1,16 +1,16 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
-import { Grid, Segment, Header } from 'semantic-ui-react';
-import SignInForm from './SignInForm';
-import { connect } from 'react-redux';
-import * as authActions from '../../actions/authActions';
+import React from "react";
+import { Link } from "react-router-dom";
+import { Grid, Segment, Header } from "semantic-ui-react";
+import SignInForm from "./SignInForm";
+import { connect } from "react-redux";
+import * as authActions from "../../actions/authActions";
 
 class SignInPage extends React.Component {
   state = {
     errors: {},
     user: {
-      email: '',
-      password: ''
+      email: "",
+      password: ""
     }
   };
 

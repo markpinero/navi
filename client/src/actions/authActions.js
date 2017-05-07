@@ -1,4 +1,5 @@
 import * as types from './actionTypes';
+import { errorHandler } from './';
 import axios from 'axios';
 import cookie from 'react-cookie';
 
@@ -22,7 +23,9 @@ export const registerUser = ({ email, password }) => {
         dispatch(authenticateUser(response.data.user));
         window.location.href = `${CLIENT_ROOT_URL}/onboarding`;
       })
-      .catch(err => console.log(err));
+      .catch(error => {
+        errorHandler(dispatch, error.response, types.AUTH_ERROR);
+      });
   };
 };
 

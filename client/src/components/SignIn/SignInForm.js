@@ -1,5 +1,5 @@
-import React from 'react';
-import { Form } from 'semantic-ui-react';
+import React from "react";
+import { Form } from "semantic-ui-react";
 
 const SignInForm = ({ onSubmit, onChange, errors, user }) => (
   <Form action="/" onSubmit={onSubmit}>
@@ -14,10 +14,11 @@ const SignInForm = ({ onSubmit, onChange, errors, user }) => (
       onChange={onChange}
       name="password"
       label="Password"
+      type="password"
       value={user.password}
       placeholder="******"
     />
-    <Form.Button fluid primary type="submit">Sign In</Form.Button>
+    <Form.Button fluid primary type="submit" content="Sign In" />
   </Form>
 );
 

@@ -13,6 +13,11 @@ export default function authReducers(state = initialState.auth, action) {
         ...state,
         authenticated: false
       };
+    case types.AUTH_ERROR:
+      return {
+        ...state,
+        error: action.payload
+      };
     default:
       return state;
   }

@@ -1,55 +1,75 @@
-import React from 'react';
-import Loading from './Loading';
-import moment from 'moment';
-// import Year from './Year';
-import { Container } from 'semantic-ui-react';
-import { bindActionCreators } from 'redux';
-import { connect } from 'react-redux';
-import * as apiActions from '../../actions/apiActions';
-import Week from './Week';
+import React from "react";
+import _ from "lodash";
+import Loading from "./Loading";
+import * as DateUtils from "../../utils/DateUtils";
+import { bindActionCreators } from "redux";
+import { connect } from "react-redux";
+import * as apiActions from "../../actions/apiActions";
 
-import './styles.css';
+import "./styles.css";
 
-// TODO: Convert dates to locale
-// TODO: Check if alive, present? in <Box />
+class Month extends React.Component {
+  render() {
+    const { start, birthday, events } = this.props;
+    return (
+      <div
+        id={start}
+        className={DateUtils.renderClasses(start, birthday, events)}
+      />
+    );
+  }
+}
+
+const renderYear = ({ thisYearEvents, age, dob }) => {
+  const startDate = DateUtils.startDate(dob, age);
+  let months = [];
+  for (let month = 0; month < 12; month++) {
+    const startMonth = DateUtils.StartMonth(startDate, month);
+    const thisMonthsEvents = DateUtils.withinMonth(
+      thisYearEvents,
+      startDate,
+      month
+    );
+    months.push(
+      <Month
+        start={startMonth}
+        birthday={startDate}
+        events={thisMonthsEvents}
+        key={startMonth}
+      />
+    );
+  }
+  return (
+    <div key={age} className="year-grid">
+      {months}
+    </div>
+  );
+};
 
 class EventGrid extends React.Component {
   componentDidMount() {
     this.props.actions.getUserDetails();
     this.props.actions.getAllEvents();
   }
-
-  renderWeek = ({ age, events }) => {
-    let weeks = [];
-    for (let week = 0; week < 52; week++) {
-      const weekId = age * 52 + week;
-      const getWeekStart = moment(this.props.user.born).add(weekId, 'weeks');
-      const getWeekEnd = moment(getWeekStart).add(6, 'days');
-      weeks.push(
-        <Week key={getWeekStart} start={getWeekStart} end={getWeekEnd} />
-      );
-    }
-    return weeks;
-  };
-
-  renderYear = (age, year, events) => {
-    return (
-      <span key={age} id={year}>
-        {this.renderWeek({ age, events })}
-      </span>
-    );
-  };
-
   render() {
-    if (this.props.requests) {
+    const dob = new Date(this.props.user.born);
+    if (_.isEmpty(this.props.user)) {
       return <Loading />;
     } else {
       let years = [];
-      for (let age = 0; age <= 100; age++) {
-        const thisYear = new Date(this.props.user.born).getFullYear() + age;
-        years.push(this.renderYear(age, thisYear, this.props.events));
+      for (let age = 0; age < 15; age++) {
+        const thisYearEvents = DateUtils.withinYear(
+          this.props.events,
+          dob,
+          age
+        );
+        years.push(renderYear({ thisYearEvents, age, dob }));
       }
-      return <Container><div className="event-grid">{years}</div></Container>;
+      return (
+        <div className="event-grid" key="1453534">
+          {years}
+        </div>
+      );
     }
   }
 }

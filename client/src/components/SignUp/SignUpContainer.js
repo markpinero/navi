@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { Grid, Segment, Header } from 'semantic-ui-react';
+import { Grid, Segment, Header, Message } from 'semantic-ui-react';
 import SignUpForm from './SignUpForm';
 import { connect } from 'react-redux';
 import * as authActions from '../../actions/authActions';
@@ -31,11 +31,22 @@ class SignUpContainer extends React.Component {
     this.props.dispatch(authActions.registerUser(this.state.user));
   };
 
+  renderAlert = () => {
+    if (this.props.errorMessage) {
+      return (
+        <Message warning>
+          {this.props.errorMessage}
+        </Message>
+      );
+    }
+  };
+
   render() {
     return (
       <Grid container centered>
         <Grid.Column className="signup">
           <Header as="h1">Sign Up</Header>
+          {this.renderAlert()}
           <Segment stacked>
             <SignUpForm
               onChange={this.handleChange}
@@ -53,4 +64,8 @@ class SignUpContainer extends React.Component {
   }
 }
 
-export default connect()(SignUpContainer);
+const mapStateToProps = state => ({
+  errorMessage: state.auth.error
+});
+
+export default connect(mapStateToProps)(SignUpContainer);
