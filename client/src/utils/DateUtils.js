@@ -41,3 +41,5 @@ export const renderClasses = (start, birthday, events) => {
   }
   return classes;
 };
+
+export const tooltipDate = date => instadate.isoDateString(date);

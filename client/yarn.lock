@@ -1185,7 +1185,7 @@ clap@^1.0.9:
   dependencies:
     chalk "^1.1.3"
 
-classnames@^2.1.5, classnames@^2.2.5:
+classnames@^2.1.5, classnames@^2.2.0, classnames@^2.2.5:
   version "2.2.5"
   resolved "https://registry.yarnpkg.com/classnames/-/classnames-2.2.5.tgz#fb3801d453467649ef3603c7d61a02bd129bde6d"
 
@@ -4259,10 +4259,6 @@ lodash.isempty@^4.2.1:
   version "4.4.0"
   resolved "https://registry.yarnpkg.com/lodash.isempty/-/lodash.isempty-4.4.0.tgz#6f86cbedd8be4ec987be9aaf33c9684db1b31e7e"
 
-lodash.isequal@^4.5.0:
-  version "4.5.0"
-  resolved "https://registry.yarnpkg.com/lodash.isequal/-/lodash.isequal-4.5.0.tgz#415c4478f2bcc30120c22ce10ed3226f7d3e18e0"
-
 lodash.isobject@~2.4.1:
   version "2.4.1"
   resolved "https://registry.yarnpkg.com/lodash.isobject/-/lodash.isobject-2.4.1.tgz#5a2e47fe69953f1ee631a7eba1fe64d2d06558f5"
@@ -5070,10 +5066,6 @@ pluralize@^1.2.1:
   version "1.2.1"
   resolved "https://registry.yarnpkg.com/pluralize/-/pluralize-1.2.1.tgz#d1a21483fd22bb41e58a12fa3421823140897c45"
 
-popper.js@^1.0.6:
-  version "1.9.1"
-  resolved "https://registry.yarnpkg.com/popper.js/-/popper.js-1.9.1.tgz#aedce56910172595e30aa7f33a1ede72e00d172c"
-
 postcss-calc@^5.2.0:
   version "5.3.1"
   resolved "https://registry.yarnpkg.com/postcss-calc/-/postcss-calc-5.3.1.tgz#77bae7ca928ad85716e2fda42f261bf7c1d65b5e"
@@ -5534,13 +5526,6 @@ react-onclickoutside@^5.11.1:
   dependencies:
     create-react-class "^15.5.x"
 
-react-popper@^0.6.0:
-  version "0.6.0"
-  resolved "https://registry.yarnpkg.com/react-popper/-/react-popper-0.6.0.tgz#52e22232dd3e7372b656e2ca642ea4447137350d"
-  dependencies:
-    lodash.isequal "^4.5.0"
-    popper.js "^1.0.6"
-
 react-redux@^5.0.4:
   version "5.0.4"
   resolved "https://registry.yarnpkg.com/react-redux/-/react-redux-5.0.4.tgz#1563babadcfb2672f57f9ceaa439fb16bf85d55b"
@@ -5625,6 +5610,13 @@ react-side-effect@^1.0.2:
   dependencies:
     exenv "^1.2.1"
     shallowequal "^0.2.2"
+
+react-tooltip@^3.3.0:
+  version "3.3.0"
+  resolved "https://registry.yarnpkg.com/react-tooltip/-/react-tooltip-3.3.0.tgz#51c08ae0221075e2c43d83cd47fc78466612df7d"
+  dependencies:
+    classnames "^2.2.0"
+    prop-types "^15.5.8"
 
 react@^15.5.4:
   version "15.5.4"

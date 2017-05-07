@@ -29,7 +29,7 @@ class EventGrid extends React.Component {
         years.push(Year({ thisYearEvents, age, dob }));
       }
       return (
-        <div className="event-grid" key="1453534">
+        <div className="event-grid">
           {years}
         </div>
       );
