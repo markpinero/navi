@@ -1,7 +1,7 @@
-const mongoose = require('mongoose');
-const autoIncrement = require('mongoose-auto-increment');
+const mongoose = require("mongoose");
+const autoIncrement = require("mongoose-auto-increment");
 const Schema = mongoose.Schema;
-const config = require('../config/main');
+const config = require("../config/main");
 
 const connection = mongoose.createConnection(config.database);
 autoIncrement.initialize(connection);
@@ -9,7 +9,7 @@ autoIncrement.initialize(connection);
 const EventSchema = new Schema({
   user: {
     type: Schema.Types.ObjectId,
-    ref: 'User'
+    ref: "User"
   },
   date: {
     type: Date,
@@ -29,6 +29,6 @@ const EventSchema = new Schema({
   }
 });
 
-EventSchema.plugin(autoIncrement.plugin, 'Event');
+EventSchema.plugin(autoIncrement.plugin, "Event");
 
-module.exports = mongoose.model('Event', EventSchema);
+module.exports = mongoose.model("Event", EventSchema);

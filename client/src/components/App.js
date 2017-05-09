@@ -2,6 +2,7 @@ import React from "react";
 import { Route, withRouter } from "react-router-dom";
 import Header from "./common/Header";
 import EventGrid from "./EventGrid/EventGrid";
+import NewEvent from "./NewEvent/NewEvent";
 import SignInContainer from "./SignIn/SignInContainer";
 import SignUpContainer from "./SignUp/SignUpContainer";
 import { Container } from "semantic-ui-react";
@@ -18,6 +19,7 @@ class App extends React.Component {
             path="/"
             component={this.props.authenticated ? EventGrid : SignInContainer}
           />
+          <Route path="/new" component={NewEvent} />
           <Route path="/signup" component={SignUpContainer} />
           <Route path="/signin" component={SignInContainer} />
         </Container>

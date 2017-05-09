@@ -9,7 +9,6 @@
 
 section.container {
   padding: 2em 0 !important;
-  min-width: 700px;
 }
 
 section.container:after, .event-grid:after {

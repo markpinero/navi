@@ -20,7 +20,7 @@ class EventGrid extends React.Component {
       return <Loading />;
     } else {
       let years = [];
-      for (let age = 0; age < 15; age++) {
+      for (let age = 0; age < 101; age++) {
         const thisYearEvents = DateUtils.withinYear(
           this.props.events,
           dob,

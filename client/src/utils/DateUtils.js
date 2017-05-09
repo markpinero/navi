@@ -22,8 +22,9 @@ export const StartMonth = (startDate, month) =>
 export const withinMonth = (events, startDate, month) => {
   return events.filter(event => {
     const eventDate = new Date(event.date);
-    const endDate = instadate.addMonths(startDate, month);
-    if (eventDate >= startDate && eventDate < endDate) {
+    const startMonth = instadate.addMonths(startDate, month);
+    const endMonth = instadate.addMonths(startMonth, 1);
+    if (eventDate >= startMonth && eventDate < endMonth) {
       return true;
     } else {
       return false;
@@ -31,15 +32,29 @@ export const withinMonth = (events, startDate, month) => {
   });
 };
 
-export const renderClasses = (start, birthday, events) => {
+export const renderClasses = (start, age, birthday, events) => {
   const today = new Date();
   let classes = "sq";
   if (start < today) classes += " alive";
-  if (instadate.isSameMonth(birthday, start)) classes += " birthday";
-  if (events.length > 0) {
-    classes += events.map((event, index) => ` ${event.category}`);
+  if (instadate.isSameMonth(birthday, start)) {
+    if (age % 5 === 0) classes += " five";
+    classes += " birthday";
   }
-  return classes;
+  let eventClasses = "";
+  if (events.length > 0) {
+    events.map(
+      (event, index) => (eventClasses = eventClasses + " " + event.category)
+    );
+  }
+  return classes + eventClasses;
 };
 
 export const tooltipDate = date => instadate.isoDateString(date);
+
+export const renderTooltips = events => {
+  let tooltips = "";
+  events.map((x, i) => {
+    tooltips += `${x.event}. `;
+  });
+  return tooltips;
+};
