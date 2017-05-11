@@ -1,18 +1,18 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
-import { Grid, Segment, Header, Message } from 'semantic-ui-react';
-import SignUpForm from './SignUpForm';
-import { connect } from 'react-redux';
-import * as authActions from '../../actions/authActions';
+import React from "react";
+import { Link } from "react-router-dom";
+import { Container, Grid, Segment, Header, Message } from "semantic-ui-react";
+import SignUpForm from "./SignUpForm";
+import { connect } from "react-redux";
+import * as authActions from "../../actions/authActions";
 
 class SignUpContainer extends React.Component {
   state = {
     errors: {},
     user: {
-      firstName: '',
-      lastName: '',
-      email: '',
-      password: ''
+      firstName: "",
+      lastName: "",
+      email: "",
+      password: ""
     }
   };
 
@@ -43,23 +43,25 @@ class SignUpContainer extends React.Component {
 
   render() {
     return (
-      <Grid container centered>
-        <Grid.Column className="signup">
-          <Header as="h1">Sign Up</Header>
-          {this.renderAlert()}
-          <Segment stacked>
-            <SignUpForm
-              onChange={this.handleChange}
-              onSubmit={this.handleSubmit}
-              errors={this.state.errors}
-              user={this.state.user}
-            />
-          </Segment>
-          <Segment textAlign="center">
-            Already have an account? <Link to="/signin">Sign In</Link>
-          </Segment>
-        </Grid.Column>
-      </Grid>
+      <Container as="section">
+        <Grid centered>
+          <Grid.Column className="signup">
+            <Header as="h1">Sign Up</Header>
+            {this.renderAlert()}
+            <Segment stacked>
+              <SignUpForm
+                onChange={this.handleChange}
+                onSubmit={this.handleSubmit}
+                errors={this.state.errors}
+                user={this.state.user}
+              />
+            </Segment>
+            <Segment textAlign="center">
+              Already have an account? <Link to="/signin">Sign In</Link>
+            </Segment>
+          </Grid.Column>
+        </Grid>
+      </Container>
     );
   }
 }

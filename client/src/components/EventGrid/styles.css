@@ -2,7 +2,7 @@
   flex: 1 1 auto;
   /*width: 50%;*/
   height: 20px;
-  border-radius: 25%;
+  border-radius: 5px;
   margin: 5px;
   background: #fff;
   border: 1px #eee solid;
@@ -36,6 +36,7 @@
 
 .career {
   background: navy;
+  border: 1px #eee solid !important;
 }
 
 .general {
@@ -51,10 +52,6 @@
 .personal {
   background: pink;
   border: 1px #eee solid !important;
-}
-
-.now {
-  background: green;
 }
 
 .family {

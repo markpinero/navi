@@ -54,7 +54,7 @@ export const tooltipDate = date => instadate.isoDateString(date);
 export const renderTooltips = events => {
   let tooltips = "";
   events.map((x, i) => {
-    tooltips += `${x.event}. `;
+    return (tooltips += `${x.event}. `);
   });
   return tooltips;
 };

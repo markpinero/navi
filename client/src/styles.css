@@ -1,6 +1,5 @@
-.wrapper {
+body {
   background: #eee;
-  /*background: linear-gradient(#f8fafc,#f4f8fb);*/
 }
 
 .signup, .signin {

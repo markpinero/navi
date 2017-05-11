@@ -12,7 +12,6 @@ class Header extends React.Component {
   render() {
     const loggedOut = (
       <Menu.Menu position="right">
-        <Menu.Item as={NavLink} to="/signup">Sign Up</Menu.Item>
         <Menu.Item as={NavLink} to="/signin">Sign In</Menu.Item>
       </Menu.Menu>
     );

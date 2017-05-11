@@ -1,6 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import { Grid, Segment, Header } from "semantic-ui-react";
+import { Container, Grid, Segment, Header } from "semantic-ui-react";
 import SignInForm from "./SignInForm";
 import { connect } from "react-redux";
 import * as authActions from "../../actions/authActions";
@@ -31,22 +31,24 @@ class SignInPage extends React.Component {
 
   render() {
     return (
-      <Grid container centered>
-        <Grid.Column className="signin">
-          <Header as="h1">Sign In</Header>
-          <Segment stacked>
-            <SignInForm
-              onChange={this.handleChange}
-              onSubmit={this.handleSubmit}
-              errors={this.state.errors}
-              user={this.state.user}
-            />
-          </Segment>
-          <Segment textAlign="center">
-            New to Navi? <Link to="/signup">Sign Up</Link>
-          </Segment>
-        </Grid.Column>
-      </Grid>
+      <Container as="section">
+        <Grid centered>
+          <Grid.Column className="signin">
+            <Header as="h1">Sign In</Header>
+            <Segment stacked>
+              <SignInForm
+                onChange={this.handleChange}
+                onSubmit={this.handleSubmit}
+                errors={this.state.errors}
+                user={this.state.user}
+              />
+            </Segment>
+            <Segment textAlign="center">
+              New to Navi? <Link to="/signup">Sign Up</Link>
+            </Segment>
+          </Grid.Column>
+        </Grid>
+      </Container>
     );
   }
 }

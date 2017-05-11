@@ -1,22 +1,22 @@
 import React from "react";
-import _ from "lodash";
+import { isEmpty } from "lodash";
+import { Container } from "semantic-ui-react";
 import Loading from "./Loading";
 import Year from "./Year";
 import * as DateUtils from "../../utils/DateUtils";
-import { bindActionCreators } from "redux";
 import { connect } from "react-redux";
-import * as apiActions from "../../actions/apiActions";
+import { getUserDetails, getAllEvents } from "../../actions/apiActions";
 
 import "./styles.css";
 
 class EventGrid extends React.Component {
   componentDidMount() {
-    this.props.actions.getUserDetails();
-    this.props.actions.getAllEvents();
+    this.props.getUserDetails();
+    this.props.getAllEvents();
   }
   render() {
     const dob = new Date(this.props.user.born);
-    if (_.isEmpty(this.props.user)) {
+    if (isEmpty(this.props.user)) {
       return <Loading />;
     } else {
       let years = [];
@@ -29,9 +29,11 @@ class EventGrid extends React.Component {
         years.push(Year({ thisYearEvents, age, dob }));
       }
       return (
-        <div className="event-grid">
-          {years}
-        </div>
+        <Container as="section">
+          <div className="event-grid">
+            {years}
+          </div>
+        </Container>
       );
     }
   }
@@ -43,8 +45,6 @@ const mapStateToProps = state => ({
   requests: state.ui.requests
 });
 
-const mapDispatchToProps = dispatch => ({
-  actions: bindActionCreators(apiActions, dispatch)
-});
-
-export default connect(mapStateToProps, mapDispatchToProps)(EventGrid);
+export default connect(mapStateToProps, { getUserDetails, getAllEvents })(
+  EventGrid
+);

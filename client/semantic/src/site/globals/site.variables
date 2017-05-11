@@ -6,7 +6,7 @@
 @fontSmoothing     : antialiased;
 
 @headerFont        : @fontName, 'Helvetica Neue', Arial, Helvetica, sans-serif;
-@pageFont          : @fontName, 'Helvetica Neue', Arial, Helvetica, sans-serif;
+@pageFont          : -apple-system, 'Helvetica Neue', Arial, Helvetica, sans-serif;
 
 @googleFontName    : 'Work+Sans';
 @importGoogleFonts : true;

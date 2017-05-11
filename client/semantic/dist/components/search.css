@@ -333,7 +333,7 @@
 .ui.category.search > .results .category > .name {
   width: 100px;
   background: transparent;
-  font-family: 'Work Sans', 'Helvetica Neue', Arial, Helvetica, sans-serif;
+  font-family: -apple-system, 'Helvetica Neue', Arial, Helvetica, sans-serif;
   font-size: 1em;
   float: 1em;
   float: left;

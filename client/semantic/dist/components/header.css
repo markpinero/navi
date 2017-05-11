@@ -131,19 +131,19 @@
 ---------------*/
 
 h1.ui.header {
-  font-size: 2rem;
+  font-size: 2em;
 }
 h2.ui.header {
-  font-size: 1.71428571rem;
+  font-size: 1.71428571em;
 }
 h3.ui.header {
-  font-size: 1.28571429rem;
+  font-size: 1.28571429em;
 }
 h4.ui.header {
-  font-size: 1.07142857rem;
+  font-size: 1.07142857em;
 }
 h5.ui.header {
-  font-size: 1rem;
+  font-size: 1em;
 }
 
 /* Sub Header */

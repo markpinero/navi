@@ -16,7 +16,6 @@ const SignInForm = ({ onSubmit, onChange, errors, user }) => (
       label="Password"
       type="password"
       value={user.password}
-      placeholder="******"
     />
     <Form.Button fluid primary type="submit" content="Sign In" />
   </Form>

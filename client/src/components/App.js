@@ -1,28 +1,38 @@
 import React from "react";
-import { Route, withRouter } from "react-router-dom";
+import { Route, Switch, withRouter } from "react-router-dom";
 import Header from "./common/Header";
+import Landing from "./Landing/Landing";
 import EventGrid from "./EventGrid/EventGrid";
-import NewEvent from "./NewEvent/NewEvent";
+import NewEventContainer from "./NewEvent/NewEventContainer";
+import Profile from "./Profile/Profile";
 import SignInContainer from "./SignIn/SignInContainer";
 import SignUpContainer from "./SignUp/SignUpContainer";
-import { Container } from "semantic-ui-react";
 import { connect } from "react-redux";
 
 class App extends React.Component {
+  componentWillUpdate(nextProps) {
+    const { location } = this.props;
+    if (
+      nextProps.history.location !== "POP" &&
+      (!location.state || !location.state.modal)
+    ) {
+      this.previousLocation = this.props.location;
+    }
+  }
+
   render() {
     return (
       <div className="wrapper">
         <Header authenticated={this.props.authenticated} />
-        <Container as="section">
-          <Route
-            exact
-            path="/"
-            component={this.props.authenticated ? EventGrid : SignInContainer}
-          />
-          <Route path="/new" component={NewEvent} />
-          <Route path="/signup" component={SignUpContainer} />
-          <Route path="/signin" component={SignInContainer} />
-        </Container>
+        <Route
+          exact
+          path="/"
+          component={this.props.authenticated ? EventGrid : Landing}
+        />
+        <Route path="/new" component={NewEventContainer} />
+        <Route path="/profile" component={Profile} />
+        <Route path="/signup" component={SignUpContainer} />
+        <Route path="/signin" component={SignInContainer} />
       </div>
     );
   }

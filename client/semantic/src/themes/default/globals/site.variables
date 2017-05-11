@@ -60,11 +60,11 @@
 @headerFontWeight : bold;
 @headerLineHeight : unit((18 / 14), em);
 
-@h1 : unit((28 / 14), rem);
-@h2 : unit((24 / 14), rem);
-@h3 : unit((18 / 14), rem);
-@h4 : unit((15 / 14), rem);
-@h5 : unit((14 / 14), rem);
+@h1 : unit((28 / 14), em);
+@h2 : unit((24 / 14), em);
+@h3 : unit((18 / 14), em);
+@h4 : unit((15 / 14), em);
+@h5 : unit((14 / 14), em);
 
 /*--------------
    Form Input

@@ -524,7 +524,7 @@ body {
   overflow-x: hidden;
   min-width: 320px;
   background: #FAFAFA;
-  font-family: 'Work Sans', 'Helvetica Neue', Arial, Helvetica, sans-serif;
+  font-family: -apple-system, 'Helvetica Neue', Arial, Helvetica, sans-serif;
   font-size: 14px;
   line-height: 1.4285em;
   color: rgba(0, 0, 0, 0.87);
@@ -549,23 +549,23 @@ h5 {
 
 h1 {
   min-height: 1rem;
-  font-size: 2rem;
+  font-size: 2em;
 }
 
 h2 {
-  font-size: 1.71428571rem;
+  font-size: 1.71428571em;
 }
 
 h3 {
-  font-size: 1.28571429rem;
+  font-size: 1.28571429em;
 }
 
 h4 {
-  font-size: 1.07142857rem;
+  font-size: 1.07142857em;
 }
 
 h5 {
-  font-size: 1rem;
+  font-size: 1em;
 }
 
 h1:first-child,
@@ -692,7 +692,7 @@ input::selection {
   vertical-align: baseline;
   background: #E0E1E2 none;
   color: rgba(0, 0, 0, 0.6);
-  font-family: 'Work Sans', 'Helvetica Neue', Arial, Helvetica, sans-serif;
+  font-family: -apple-system, 'Helvetica Neue', Arial, Helvetica, sans-serif;
   margin: 0em 0.25em 0em 0em;
   padding: 0.78571429em 1.5em 0.78571429em;
   text-transform: none;
@@ -4735,7 +4735,7 @@ input::selection {
 /* Text Container */
 
 .ui.text.container {
-  font-family: 'Work Sans', 'Helvetica Neue', Arial, Helvetica, sans-serif;
+  font-family: -apple-system, 'Helvetica Neue', Arial, Helvetica, sans-serif;
   max-width: 700px !important;
   line-height: 1.5;
 }
@@ -6455,23 +6455,23 @@ i.flag.zimbabwe:before {
 ---------------*/
 
 h1.ui.header {
-  font-size: 2rem;
+  font-size: 2em;
 }
 
 h2.ui.header {
-  font-size: 1.71428571rem;
+  font-size: 1.71428571em;
 }
 
 h3.ui.header {
-  font-size: 1.28571429rem;
+  font-size: 1.28571429em;
 }
 
 h4.ui.header {
-  font-size: 1.07142857rem;
+  font-size: 1.07142857em;
 }
 
 h5.ui.header {
-  font-size: 1rem;
+  font-size: 1em;
 }
 
 /* Sub Header */
@@ -11744,7 +11744,7 @@ img.ui.bordered.image {
   -webkit-tap-highlight-color: rgba(255, 255, 255, 0);
   text-align: left;
   line-height: 1.21428571em;
-  font-family: 'Work Sans', 'Helvetica Neue', Arial, Helvetica, sans-serif;
+  font-family: -apple-system, 'Helvetica Neue', Arial, Helvetica, sans-serif;
   padding: 0.67857143em 1em;
   background: #FFFFFF;
   border: 1px solid rgba(34, 36, 38, 0.15);
@@ -17418,7 +17418,7 @@ ol.ui.horizontal.list li:before,
 .ui.form input[type="text"],
 .ui.form input[type="file"],
 .ui.form input[type="url"] {
-  font-family: 'Work Sans', 'Helvetica Neue', Arial, Helvetica, sans-serif;
+  font-family: -apple-system, 'Helvetica Neue', Arial, Helvetica, sans-serif;
   margin: 0em;
   outline: none;
   -webkit-appearance: none;
@@ -20777,7 +20777,7 @@ ol.ui.horizontal.list li:before,
   display: -ms-flexbox;
   display: flex;
   margin: 1rem 0em;
-  font-family: 'Work Sans', 'Helvetica Neue', Arial, Helvetica, sans-serif;
+  font-family: -apple-system, 'Helvetica Neue', Arial, Helvetica, sans-serif;
   background: #FFFFFF;
   font-weight: normal;
   border: 1px solid rgba(34, 36, 38, 0.15);
@@ -27391,7 +27391,7 @@ a.ui.card:hover,
 
 .ui.statistics .statistic > .value,
 .ui.statistic > .value {
-  font-family: 'Work Sans', 'Helvetica Neue', Arial, Helvetica, sans-serif;
+  font-family: -apple-system, 'Helvetica Neue', Arial, Helvetica, sans-serif;
   font-size: 4rem;
   font-weight: normal;
   line-height: 1em;
@@ -33523,7 +33523,7 @@ a.ui.nag {
 .ui.category.search > .results .category > .name {
   width: 100px;
   background: transparent;
-  font-family: 'Work Sans', 'Helvetica Neue', Arial, Helvetica, sans-serif;
+  font-family: -apple-system, 'Helvetica Neue', Arial, Helvetica, sans-serif;
   font-size: 1em;
   float: 1em;
   float: left;
