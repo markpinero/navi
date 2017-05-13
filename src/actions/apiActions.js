@@ -2,6 +2,7 @@ import * as types from "./actionTypes";
 import { errorHandler } from "./";
 import axios from "axios";
 import cookie from "react-cookie";
+import { API_URL } from "./";
 
 export const getUserDetailsSuccess = user => ({
   type: types.GET_USER_DETAILS_SUCCESS,
@@ -27,7 +28,7 @@ export const getEvent = eventId => {
   return dispatch => {
     dispatch(apiStart());
     axios
-      .get(`/api/events/get/${eventId}`, authToken)
+      .get(`${API_URL}/api/events/get/${eventId}`, authToken)
       .then(response => {
         dispatch(apiDone());
       })
@@ -41,7 +42,7 @@ export const getEvent = eventId => {
 export const getUserDetails = () => {
   return dispatch => {
     dispatch(apiStart());
-    axios.get("/api/user/get", authToken).then(response => {
+    axios.get(`${API_URL}/api/user/get`, authToken).then(response => {
       dispatch(apiDone());
       dispatch(getUserDetailsSuccess(response.data));
     });
@@ -52,7 +53,7 @@ export const getAllEvents = () => {
   return dispatch => {
     dispatch(apiStart());
     axios
-      .get("/api/events/get/all", authToken)
+      .get(`${API_URL}/api/events/get/all`, authToken)
       .then(response => {
         dispatch(apiDone());
         dispatch(getAllEventsSuccess(response.data));
@@ -68,7 +69,7 @@ export const createEvent = event => {
   return dispatch => {
     dispatch(apiStart());
     axios
-      .post("/api/events/create", event, authToken)
+      .post(`${API_URL}/api/events/create`, event, authToken)
       .then(response => {
         dispatch(apiDone());
       })
@@ -83,7 +84,7 @@ export const deleteEvent = event => {
   return dispatch => {
     dispatch(apiStart());
     axios
-      .delete("/api/events/delete", event, authToken)
+      .delete(`${API_URL}/api/events/delete`, event, authToken)
       .then(response => {
         dispatch(apiDone());
         console.log(response);
@@ -99,7 +100,7 @@ export const updateEvent = event => {
   return dispatch => {
     dispatch(apiStart());
     axios
-      .update("/api/events/update", event, authToken)
+      .update(`${API_URL}/api/events/update`, event, authToken)
       .then(response => {
         dispatch(apiDone());
         console.log(response);
@@ -115,7 +116,7 @@ export const getEventDemo = () => {
   return dispatch => {
     dispatch(apiStart());
     axios
-      .get("/api/events/demo")
+      .get(`${API_URL}/api/events/demo`)
       .then(response => {
         dispatch(apiDone());
         dispatch(getAllEventsSuccess(response.data));
@@ -131,7 +132,7 @@ export const getUserDemo = () => {
   return dispatch => {
     dispatch(apiStart());
     axios
-      .get("/api/user/demo")
+      .get(`${API_URL}/api/user/demo`)
       .then(response => {
         dispatch(apiDone());
         dispatch(getUserDetailsSuccess(response.data));

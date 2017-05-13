@@ -1,5 +1,7 @@
 import { logoutUser } from "./authActions";
 
+export const API_URL = "https://mighty-peak-53535.herokuapp.com";
+
 export function errorHandler(dispatch, error, type) {
   console.log("Error type:", type);
   console.log(error);
