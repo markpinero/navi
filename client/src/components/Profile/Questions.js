@@ -4,6 +4,7 @@ import { Table, Button } from "semantic-ui-react";
 
 const Questions = ({ date, category, title, show }) => {
   const newDate = new Date(date);
+  const ifPeriod = title.endsWith(".");
   return (
     <Table.Row>
       <Table.Cell singleLine>
@@ -12,10 +13,13 @@ const Questions = ({ date, category, title, show }) => {
       <Table.Cell className="profile-category">
         {category}
       </Table.Cell>
-      <Table.Cell>{title}</Table.Cell>
+      <Table.Cell>{title}{ifPeriod ? "" : "."}</Table.Cell>
       <Table.Cell>
         <Button.Group>
+          {/*
+          TODO: Implement editing
           <Button>Edit</Button>
+          */}
           <Button onClick={show}>Delete</Button>
         </Button.Group>
       </Table.Cell>

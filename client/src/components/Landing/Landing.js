@@ -1,5 +1,6 @@
 import React from "react";
 import { Container, Header, Button } from "semantic-ui-react";
+import { Link } from "react-router-dom";
 import styled from "styled-components";
 
 const Landing = () => (
@@ -10,7 +11,8 @@ const Landing = () => (
       </Header>
       <p>What makes a good life?</p>
       <p>Each row makes up one year.</p>
-      <Button primary content="Sign Up" />
+      <Button as={Link} to="/signup" primary content="Sign Up" />
+      <Button as={Link} to="/demo" content="View Demo" />
     </Container>
   </Hero>
 );

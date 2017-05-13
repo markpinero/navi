@@ -1,10 +1,10 @@
 // import * as types from './actionTypes';
-import axios from 'axios';
-import moment from 'moment';
+import axios from "axios";
+import moment from "moment";
 
 export const postLifeExpectancy = expireAge => {
   return dispatch => {
-    axios.post('/api/user', expireAge).then(response => {
+    axios.post("/api/user", expireAge).then(response => {
       console.log(response);
     });
   };
@@ -13,16 +13,16 @@ export const postLifeExpectancy = expireAge => {
 export const calcLifeExpectancy = ({ dob, gender, country }) => {
   return dispatch => {
     axios({
-      method: 'GET',
+      method: "GET",
       url: `http://api.population.io:80/1.0/life-expectancy/total/${gender}/${country}/${dob}/`,
       headers: {
-        'Content-Type': 'application/json'
+        "Content-Type": "application/json"
       }
     })
       .then(response => {
-        return moment('1987-11-13')
-          .add(response.data.total_life_expectancy, 'years')
-          .format('YYYY-MM-DD');
+        return moment("1987-11-13")
+          .add(response.data.total_life_expectancy, "years")
+          .format("YYYY-MM-DD");
         // postLifeExpectancy(response.data.total_life_expectancy)
       })
       .then(expireDate => {

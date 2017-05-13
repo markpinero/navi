@@ -1,7 +1,8 @@
 import React from "react";
-import { Route, Switch, withRouter } from "react-router-dom";
+import { Route, withRouter } from "react-router-dom";
 import Header from "./common/Header";
 import Landing from "./Landing/Landing";
+import Demo from "./EventGrid/Demo";
 import EventGrid from "./EventGrid/EventGrid";
 import NewEventContainer from "./NewEvent/NewEventContainer";
 import Profile from "./Profile/Profile";
@@ -29,6 +30,7 @@ class App extends React.Component {
           path="/"
           component={this.props.authenticated ? EventGrid : Landing}
         />
+        <Route path="/demo" component={Demo} />
         <Route path="/new" component={NewEventContainer} />
         <Route path="/profile" component={Profile} />
         <Route path="/signup" component={SignUpContainer} />

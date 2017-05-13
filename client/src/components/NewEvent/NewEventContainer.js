@@ -1,36 +1,56 @@
 import React from "react";
 import NewEventForm from "./NewEventForm";
-import { Container, Header, Grid, Segment } from "semantic-ui-react";
+import { Container, Grid, Segment, Header, Message } from "semantic-ui-react";
 import { connect } from "react-redux";
-import * as apiActions from "../../actions/apiActions";
+import { createEvent } from "../../actions/apiActions";
 
 class NewEventContainer extends React.Component {
   state = {
-    date: null,
-    category: "",
-    event: "",
-    private: false
+    errors: {},
+    form: {
+      date: "",
+      category: "",
+      title: "",
+      private: false
+    }
   };
 
-  handleChange = (e, { name, value }) => this.setState({ [name]: value });
-  handleToggleChange = () => this.setState({ private: !this.state.private });
+  handleChange = (e, { name, value }) => {
+    const form = this.state.form;
+    form[name] = value;
+    this.setState({
+      form
+    });
+  };
 
-  handleSubmit(e) {
+  handleToggle = () => {
+    const form = this.state.form;
+    this.setState({
+      form: {
+        ...form,
+        private: !this.state.form.private
+      }
+    });
+  };
+
+  handleSubmit = e => {
     e.preventDefault();
-    const newEvent = {
-      date: new Date(this.state.date),
-      category: this.state.category,
-      event: this.state.event,
-      private: this.state.private
+    const form = {
+      ...this.state.form,
+      date: new Date(this.state.form.date)
     };
-    this.props.dispatch(apiActions.createEvent(newEvent));
-    this.setState = {
-      date: null,
-      category: "",
-      event: "",
-      private: false
-    };
-  }
+    this.props.createEvent(form);
+  };
+
+  renderAlert = () => {
+    if (this.props.errorMessage) {
+      return (
+        <Message warning>
+          {this.props.errorMessage}
+        </Message>
+      );
+    }
+  };
 
   render() {
     return (
@@ -38,12 +58,13 @@ class NewEventContainer extends React.Component {
         <Grid centered>
           <Grid.Column className="signup">
             <Header as="h1">New Event</Header>
+            {this.renderAlert()}
             <Segment stacked>
               <NewEventForm
                 onSubmit={this.handleSubmit}
                 onChange={this.handleChange}
-                onToggleChange={this.handleToggleChange}
-                form={this.state}
+                onToggle={this.handleToggle}
+                form={this.state.form}
               />
             </Segment>
           </Grid.Column>
@@ -53,4 +74,8 @@ class NewEventContainer extends React.Component {
   }
 }
 
-export default connect()(NewEventContainer);
+const mapStateToProps = state => ({
+  errorMessage: state.api.error
+});
+
+export default connect(mapStateToProps, { createEvent })(NewEventContainer);

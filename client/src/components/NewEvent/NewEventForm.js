@@ -2,48 +2,45 @@ import React from "react";
 import { Form } from "semantic-ui-react";
 
 const categoryOptions = [
-  { text: "General", value: "general" },
   { text: "Personal", value: "personal" },
-  { text: "School", value: "school" },
+  { text: "Family", value: "family" },
   { text: "Career", value: "career" },
-  { text: "Family", value: "family" }
+  { text: "School", value: "school" },
+  { text: "General", value: "general" }
 ];
 
-const NewEventForm = ({ onSubmit, onChange, onToggleChange, errors, form }) => (
+const NewEventForm = ({ onSubmit, onChange, onToggle, form }) => (
   <Form onSubmit={onSubmit}>
-    <Form.Field>
-      <label>Date</label>
-      <Form.Input
-        name="date"
-        onChange={onChange}
-        value={form.date}
-        placeholderText="MM/DD/YYYY"
-      />
-    </Form.Field>
-    <Form.Select
-      label="category"
+    <Form.Input
+      label="Event Title"
+      name="title"
       onChange={onChange}
+      placeholder="Travelled to Europe"
+      value={form.title}
+    />
+    <Form.Input
+      label="Date"
+      name="date"
+      onChange={onChange}
+      placeholder="MM/DD/YYYY"
+      value={form.date}
+    />
+    <Form.Select
+      label="Category"
       name="category"
+      onChange={onChange}
       options={categoryOptions}
-      placeholder="General, Personal, Career..."
+      placeholder="Personal, Family, Career..."
       search
       value={form.category}
     />
-    <Form.Input
-      label="event"
-      onChange={onChange}
-      name="event"
-      value={form.event}
+    <Form.Checkbox
+      label="Private Event"
+      name="privateEvent"
+      onChange={onToggle}
+      checked={form.private}
     />
-    <Form.Group>
-      <Form.Checkbox
-        label="Private Event"
-        onChange={onToggleChange}
-        name="private"
-        checked={form.private}
-      />
-    </Form.Group>
-    <Form.Button fluid primary type="submit" content="Submit" />
+    <Form.Button fluid primary content="Submit" type="submit" />
   </Form>
 );
 

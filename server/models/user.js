@@ -1,6 +1,6 @@
-const mongoose = require('mongoose');
+const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
-const bcrypt = require('bcrypt-nodejs');
+const bcrypt = require("bcrypt-nodejs");
 
 const UserSchema = new Schema({
   profile: {
@@ -30,10 +30,10 @@ const UserSchema = new Schema({
   }
 });
 
-UserSchema.pre('save', function(next) {
+UserSchema.pre("save", function(next) {
   const user = this, SALT_FACTOR = 5;
 
-  if (!user.isModified('password')) return next();
+  if (!user.isModified("password")) return next();
 
   bcrypt.genSalt(SALT_FACTOR, function(err, salt) {
     if (err) return next(err);
@@ -52,4 +52,4 @@ UserSchema.methods.comparePassword = function(candidatePassword, callback) {
   });
 };
 
-module.exports = mongoose.model('User', UserSchema);
+module.exports = mongoose.model("User", UserSchema);

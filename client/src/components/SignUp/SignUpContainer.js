@@ -1,9 +1,9 @@
 import React from "react";
+import SignUpForm from "./SignUpForm";
 import { Link } from "react-router-dom";
 import { Container, Grid, Segment, Header, Message } from "semantic-ui-react";
-import SignUpForm from "./SignUpForm";
 import { connect } from "react-redux";
-import * as authActions from "../../actions/authActions";
+import { registerUser } from "../../actions/authActions";
 
 class SignUpContainer extends React.Component {
   state = {
@@ -11,6 +11,7 @@ class SignUpContainer extends React.Component {
     user: {
       firstName: "",
       lastName: "",
+      born: "",
       email: "",
       password: ""
     }
@@ -28,7 +29,7 @@ class SignUpContainer extends React.Component {
 
   handleSubmit = event => {
     event.preventDefault();
-    this.props.dispatch(authActions.registerUser(this.state.user));
+    this.props.registerUser(this.state.user);
   };
 
   renderAlert = () => {
@@ -70,4 +71,4 @@ const mapStateToProps = state => ({
   errorMessage: state.auth.error
 });
 
-export default connect(mapStateToProps)(SignUpContainer);
+export default connect(mapStateToProps, { registerUser })(SignUpContainer);

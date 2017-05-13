@@ -1,5 +1,5 @@
-import React from 'react';
-import { Form } from 'semantic-ui-react';
+import React from "react";
+import { Form } from "semantic-ui-react";
 
 const SignUpForm = ({ onSubmit, onChange, errors, user }) => (
   <Form action="/" onSubmit={onSubmit}>
@@ -19,6 +19,13 @@ const SignUpForm = ({ onSubmit, onChange, errors, user }) => (
         placeholder="Smith"
       />
     </Form.Group>
+    <Form.Input
+      onChange={onChange}
+      name="born"
+      label="Date of Birth"
+      value={user.born}
+      placeholder="MM/DD/YYYY"
+    />
     <Form.Input
       onChange={onChange}
       name="email"

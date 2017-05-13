@@ -43,7 +43,7 @@ class Profile extends React.Component {
                 key={i}
                 date={event.date}
                 category={event.category}
-                title={event.event}
+                title={event.title}
                 onClick={this.show}
               />
             ))}

@@ -1,12 +1,12 @@
 export default {
   auth: {
     authenticated: false,
-    error: ''
+    error: ""
   },
   api: {
     user: {},
     events: [],
-    error: ''
+    error: ""
   },
   ui: {
     requests: 0
