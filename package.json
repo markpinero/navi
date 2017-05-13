@@ -39,7 +39,7 @@
     "nodemon": "^1.11.0"
   },
   "scripts": {
-    "start": "npm run start-server",
+    "start": "node start-server",
     "server": "nodemon start-server",
     "client": "babel-node start-client"
   }
