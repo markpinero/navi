@@ -19,7 +19,7 @@ const Landing = () => (
           {' '}
           helps you remember the most important things.
         </Text>
-        <img src={screenshot} />
+        <img src={screenshot} alt="Navi: The Life Calendar" />
       </Container>
     </Hero>
     <Spiel>

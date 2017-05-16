@@ -1,5 +1,6 @@
 import React from 'react';
 import { isEmpty } from 'lodash';
+import Grounding from 'react-grounding';
 import { Container } from 'semantic-ui-react';
 import Loading from './Loading';
 import Year from './Year';
@@ -32,6 +33,18 @@ class EventGrid extends React.Component {
         <Container as="section">
           <div className="event-grid">
             {years}
+            <Grounding className="legend-container">
+              <Container>
+                <ul className="legend">
+                  <li><strong>Legend:</strong></li>
+                  <li><div className="sq personal" /> Personal</li>
+                  <li><div className="sq family" /> Family</li>
+                  <li><div className="sq school" /> School</li>
+                  <li><div className="sq career" /> Career</li>
+                  <li><div className="sq general" /> General</li>
+                </ul>
+              </Container>
+            </Grounding>
           </div>
         </Container>
       );

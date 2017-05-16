@@ -80,7 +80,7 @@
   color: rgba(0, 0, 0, 0.4);
 }
 
-.legend { display: none; }
+.headroom-wrapper { display: none; }
 
 @media screen and (min-width: 800px) {
   .sq {
@@ -93,12 +93,20 @@
     display: block;
   }
 
+  .headroom-wrapper { display: block };
+
+  .headroom .container {
+    background: #fff;
+    border-radius: 20px;
+    box-shadow: 0 0 10px 1px rgba(0, 0, 0, 0.2);
+  }
+
   .legend {
     display: flex;
     justify-content: space-between;
     list-style-type: none;
-    margin: 15px;
-    padding: 0;
+    margin: 40px 0px;
+    padding: 20px 30px;
   }
 
   .legend li {
