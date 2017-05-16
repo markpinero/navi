@@ -72,7 +72,9 @@ export const createEvent = event => {
       .post(`${API_URL}/api/events/create`, event, authToken)
       .then(response => {
         dispatch(apiDone());
-        window.location.href('/');
+        setTimeout(function() {
+          window.location.href = '/';
+        }, 300);
       })
       .catch(error => {
         dispatch(apiDone());
