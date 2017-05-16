@@ -1,13 +1,13 @@
-import React from "react";
-import { isEmpty } from "lodash";
-import { Container } from "semantic-ui-react";
-import Loading from "./Loading";
-import Year from "./Year";
-import * as DateUtils from "../../utils/DateUtils";
-import { connect } from "react-redux";
-import { getUserDetails, getAllEvents } from "../../actions/apiActions";
+import React from 'react';
+import { isEmpty } from 'lodash';
+import { Container } from 'semantic-ui-react';
+import Loading from './Loading';
+import Year from './Year';
+import * as DateUtils from '../../utils/DateUtils';
+import { connect } from 'react-redux';
+import { getUserDetails, getAllEvents } from '../../actions/apiActions';
 
-import "./styles.css";
+import './styles.css';
 
 class EventGrid extends React.Component {
   componentDidMount() {

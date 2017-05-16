@@ -80,7 +80,9 @@
   color: rgba(0, 0, 0, 0.4);
 }
 
-@media screen and (min-width: 700px) {
+.legend { display: none; }
+
+@media screen and (min-width: 800px) {
   .sq {
     height: 40px;
     margin: 10px;
@@ -89,5 +91,24 @@
 
   .age {
     display: block;
+  }
+
+  .legend {
+    display: flex;
+    justify-content: space-between;
+    list-style-type: none;
+    margin: 15px;
+    padding: 0;
+  }
+
+  .legend li {
+    display: flex;
+    align-items: center;
+    list-style-type: none;
+  }
+
+  .legend .sq {
+    display: inline-block !important;
+    min-width: 40px;
   }
 }
