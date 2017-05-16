@@ -1,8 +1,8 @@
-import React from "react";
-import { Link, NavLink } from "react-router-dom";
-import { Container, Menu } from "semantic-ui-react";
-import { connect } from "react-redux";
-import { logoutUser } from "../../actions/authActions";
+import React from 'react';
+import { Link, NavLink } from 'react-router-dom';
+import { Container, Menu } from 'semantic-ui-react';
+import { connect } from 'react-redux';
+import { logoutUser } from '../../actions/authActions';
 
 class Header extends React.Component {
   handleClick = () => {
@@ -12,6 +12,7 @@ class Header extends React.Component {
   render() {
     const loggedOut = (
       <Menu.Menu position="right">
+        <Menu.Item as={NavLink} to="/signup">Sign Up</Menu.Item>
         <Menu.Item as={NavLink} to="/signin">Sign In</Menu.Item>
       </Menu.Menu>
     );

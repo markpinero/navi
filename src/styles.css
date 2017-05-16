@@ -1,5 +1,6 @@
 body {
   background: #eee;
+  min-height: 100vh;
 }
 
 .signup, .signin {

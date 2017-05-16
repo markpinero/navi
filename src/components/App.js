@@ -1,20 +1,21 @@
-import React from "react";
-import { Route, withRouter } from "react-router-dom";
-import Header from "./common/Header";
-import Landing from "./Landing/Landing";
-import Demo from "./EventGrid/Demo";
-import EventGrid from "./EventGrid/EventGrid";
-import NewEventContainer from "./NewEvent/NewEventContainer";
-import Profile from "./Profile/Profile";
-import SignInContainer from "./SignIn/SignInContainer";
-import SignUpContainer from "./SignUp/SignUpContainer";
-import { connect } from "react-redux";
+import React from 'react';
+import { Route, withRouter } from 'react-router-dom';
+import Header from './common/Header';
+import Footer from './common/Footer';
+import Landing from './Landing/Landing';
+import Demo from './EventGrid/Demo';
+import EventGrid from './EventGrid/EventGrid';
+import NewEventContainer from './NewEvent/NewEventContainer';
+import Profile from './Profile/Profile';
+import SignInContainer from './SignIn/SignInContainer';
+import SignUpContainer from './SignUp/SignUpContainer';
+import { connect } from 'react-redux';
 
 class App extends React.Component {
   componentWillUpdate(nextProps) {
     const { location } = this.props;
     if (
-      nextProps.history.location !== "POP" &&
+      nextProps.history.location !== 'POP' &&
       (!location.state || !location.state.modal)
     ) {
       this.previousLocation = this.props.location;
@@ -35,6 +36,7 @@ class App extends React.Component {
         <Route path="/profile" component={Profile} />
         <Route path="/signup" component={SignUpContainer} />
         <Route path="/signin" component={SignInContainer} />
+        <Footer />
       </div>
     );
   }
