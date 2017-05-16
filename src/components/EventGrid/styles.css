@@ -56,8 +56,8 @@
 
 .family {
   background: yellow;
-  border: 1px #eee solid;
-}
+  border: 1px #eee solid !important;
+} 
 
 .year-grid {
   display: flex;
