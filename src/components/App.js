@@ -26,16 +26,18 @@ class App extends React.Component {
     return (
       <div className="wrapper">
         <Header authenticated={this.props.authenticated} />
-        <Route
-          exact
-          path="/"
-          component={this.props.authenticated ? EventGrid : Landing}
-        />
-        <Route path="/demo" component={Demo} />
-        <Route path="/new" component={NewEventContainer} />
-        <Route path="/profile" component={Profile} />
-        <Route path="/signup" component={SignUpContainer} />
-        <Route path="/signin" component={SignInContainer} />
+        <div className="content">
+          <Route
+            exact
+            path="/"
+            component={this.props.authenticated ? EventGrid : Landing}
+          />
+          <Route path="/demo" component={Demo} />
+          <Route path="/new" component={NewEventContainer} />
+          <Route path="/profile" component={Profile} />
+          <Route path="/signup" component={SignUpContainer} />
+          <Route path="/signin" component={SignInContainer} />
+        </div>
         <Footer />
       </div>
     );

@@ -15,9 +15,10 @@ const Footer = () => (
 );
 
 const FooterContainer = styled.footer`
+  align-content: flex-end;
   background: rgba(0, 0, 0, 0.7);
-  margin-top: 40px;
   padding: 80px;
+  margin-top: 40px;
 `;
 
 const FooterText = styled.div`
