@@ -1,8 +1,8 @@
-import * as types from "./actionTypes";
-import { errorHandler } from "./";
-import axios from "axios";
-import cookie from "react-cookie";
-import { API_URL } from "./";
+import * as types from './actionTypes';
+import { errorHandler } from './';
+import axios from 'axios';
+import cookie from 'react-cookie';
+import { API_URL } from './';
 
 export const getUserDetailsSuccess = user => ({
   type: types.GET_USER_DETAILS_SUCCESS,
@@ -22,7 +22,7 @@ export const createEventSuccess = event => ({
 export const apiStart = () => ({ type: types.API_START });
 export const apiDone = () => ({ type: types.API_DONE });
 
-const authToken = { headers: { Authorization: cookie.load("token") } };
+const authToken = { headers: { Authorization: cookie.load('token') } };
 
 export const getEvent = eventId => {
   return dispatch => {
@@ -72,6 +72,7 @@ export const createEvent = event => {
       .post(`${API_URL}/api/events/create`, event, authToken)
       .then(response => {
         dispatch(apiDone());
+        window.location.href('/');
       })
       .catch(error => {
         dispatch(apiDone());
