@@ -22,10 +22,6 @@
   border: 1px #21BA45 solid;
 }
 
-/*.alive:last-of-type {
-  background: black;
-}*/
-
 .five.alive {
   background: #21BA45;
 }
@@ -75,6 +71,8 @@
   display: none;
   position: absolute;
   left: -25px;
+  top: 50%;
+  margin-top: -10px;
   text-align: right;
   width: 25px;
   color: rgba(0, 0, 0, 0.4);
@@ -97,25 +95,4 @@
     display: block;
   }
 
-  .legend {
-    display: flex;
-    justify-content: space-between;
-    list-style-type: none;
-    background: #fff;
-    border-radius: 20px;
-    box-shadow: 0 0 10px 1px rgba(0, 0, 0, 0.2);
-    margin: 40px 0px;
-    padding: 20px 30px;
-  }
-
-  .legend li {
-    display: flex;
-    align-items: center;
-    list-style-type: none;
-  }
-
-  .legend .sq {
-    display: inline-block !important;
-    min-width: 40px;
-  }
 }

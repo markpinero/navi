@@ -9,24 +9,15 @@ import NewEventContainer from './NewEvent/NewEventContainer';
 import Profile from './Profile/Profile';
 import SignInContainer from './SignIn/SignInContainer';
 import SignUpContainer from './SignUp/SignUpContainer';
+import { Wrapper, Content } from '../styles';
 import { connect } from 'react-redux';
 
 class App extends React.Component {
-  componentWillUpdate(nextProps) {
-    const { location } = this.props;
-    if (
-      nextProps.history.location !== 'POP' &&
-      (!location.state || !location.state.modal)
-    ) {
-      this.previousLocation = this.props.location;
-    }
-  }
-
   render() {
     return (
-      <div className="wrapper">
+      <Wrapper>
         <Header authenticated={this.props.authenticated} />
-        <div className="content">
+        <Content>
           <Route
             exact
             path="/"
@@ -37,9 +28,9 @@ class App extends React.Component {
           <Route path="/profile" component={Profile} />
           <Route path="/signup" component={SignUpContainer} />
           <Route path="/signin" component={SignInContainer} />
-        </div>
+        </Content>
         <Footer />
-      </div>
+      </Wrapper>
     );
   }
 }

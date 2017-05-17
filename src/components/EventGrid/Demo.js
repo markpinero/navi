@@ -5,6 +5,7 @@ import { Container } from 'semantic-ui-react';
 import Loading from './Loading';
 import Year from './Year';
 import * as DateUtils from '../../utils/DateUtils';
+import { Legend } from '../../styles';
 import { connect } from 'react-redux';
 import { getEventDemo, getUserDemo } from '../../actions/apiActions';
 
@@ -35,14 +36,14 @@ class Demo extends React.Component {
             {years}
             <Grounding className="legend-container">
               <Container>
-                <ul className="legend">
-                  <li><strong>Legend:</strong></li>
+                <Legend>
+                  <li><strong>Legend</strong></li>
                   <li><div className="sq personal" /> Personal</li>
                   <li><div className="sq family" /> Family</li>
                   <li><div className="sq school" /> School</li>
                   <li><div className="sq career" /> Career</li>
                   <li><div className="sq general" /> General</li>
-                </ul>
+                </Legend>
               </Container>
             </Grounding>
           </div>
