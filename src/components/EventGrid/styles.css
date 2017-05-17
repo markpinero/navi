@@ -93,7 +93,9 @@
     display: block;
   }
 
-  .headroom-wrapper { display: block };
+  .headroom-wrapper {
+    display: block;
+  }
 
   .legend {
     display: flex;
