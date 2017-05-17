@@ -523,7 +523,7 @@ body {
   padding: 0px;
   overflow-x: hidden;
   min-width: 320px;
-  background: #FAFAFA;
+  background: #EEE;
   font-family: -apple-system, 'Helvetica Neue', Arial, Helvetica, sans-serif;
   font-size: 14px;
   line-height: 1.4285em;
@@ -33901,7 +33901,7 @@ body.pushable {
 }
 
 body.pushable > .pusher {
-  background: #FAFAFA;
+  background: #EEE;
 }
 
 /* Pusher should inherit background from context */
