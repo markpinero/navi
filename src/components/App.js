@@ -6,6 +6,7 @@ import Landing from './Landing/Landing';
 import Demo from './EventGrid/Demo';
 import EventGrid from './EventGrid/EventGrid';
 import NewEventContainer from './NewEvent/NewEventContainer';
+import EditEventContainer from './EditEvent/EditEventContainer';
 import Profile from './Profile/Profile';
 import SignInContainer from './SignIn/SignInContainer';
 import SignUpContainer from './SignUp/SignUpContainer';
@@ -25,6 +26,7 @@ class App extends React.Component {
           />
           <Route path="/demo" component={Demo} />
           <Route path="/new" component={NewEventContainer} />
+          <Route path="/event/:eventId" component={EditEventContainer} />
           <Route path="/profile" component={Profile} />
           <Route path="/signup" component={SignUpContainer} />
           <Route path="/signin" component={SignInContainer} />

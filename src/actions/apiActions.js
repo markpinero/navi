@@ -103,10 +103,9 @@ export const updateEvent = event => {
   return dispatch => {
     dispatch(apiStart());
     axios
-      .update(`${API_URL}/api/events/update`, event, authToken)
+      .put(`${API_URL}/api/events/update`, event, authToken)
       .then(response => {
         dispatch(apiDone());
-        console.log(response);
       })
       .catch(error => {
         dispatch(apiDone());

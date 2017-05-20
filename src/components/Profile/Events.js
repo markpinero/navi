@@ -1,17 +1,9 @@
 import React from 'react';
 import instadate from 'instadate';
+import { Link } from 'react-router-dom';
 import { Table, Button } from 'semantic-ui-react';
 
-const renderControls = (
-  <Table.Cell>
-    <Button.Group>
-      <Button>Edit</Button>
-      <Button>Delete</Button>
-    </Button.Group>
-  </Table.Cell>
-);
-
-const Events = ({ date, category, title, authenticated }) => {
+const Events = ({ id, date, category, title, authenticated }) => {
   const parseDate = new Date(date);
   const ifPeriod = title.endsWith('.');
   return (
@@ -23,7 +15,12 @@ const Events = ({ date, category, title, authenticated }) => {
         {category}
       </Table.Cell>
       <Table.Cell>{title}{ifPeriod ? '' : '.'}</Table.Cell>
-      {authenticated ? renderControls : ''}
+      <Table.Cell>
+        <Button.Group>
+          <Button as={Link} to={`/event/` + id}>Edit</Button>
+          <Button>Delete</Button>
+        </Button.Group>
+      </Table.Cell>
     </Table.Row>
   );
 };

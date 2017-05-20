@@ -23,7 +23,7 @@ class Profile extends React.Component {
   }
 
   render() {
-    const { events, authenticated } = this.props;
+    const { events } = this.props;
     return (
       <Container as="section">
         <Header as="h1">Profile</Header>
@@ -41,7 +41,7 @@ class Profile extends React.Component {
             {events.map((event, i) => (
               <Events
                 key={i}
-                authenticated={authenticated}
+                id={event._id}
                 date={event.date}
                 category={event.category}
                 title={event.title}
@@ -56,8 +56,7 @@ class Profile extends React.Component {
 }
 
 const mapStateToProps = state => ({
-  events: state.api.events,
-  authenticated: state.auth.authenticated
+  events: state.api.events
 });
 
 export default connect(mapStateToProps, { getAllEvents })(Profile);
