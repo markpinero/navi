@@ -1,17 +1,17 @@
-const Event = require("../models/event");
-const User = require("../models/user");
+const Event = require('../models/event');
+const User = require('../models/user');
 
 exports.saveEvent = function(req, res, next) {
   if (!req.body.title) {
-    return res.status(422).send({ error: "Please enter an event title." });
+    return res.status(422).send({ error: 'Please enter an event title.' });
   }
 
   if (!Date.parse(req.body.date) || req.body.date > new Date()) {
-    return res.status(422).send({ error: "Please enter a valid date." });
+    return res.status(422).send({ error: 'Please enter a valid date.' });
   }
 
   if (!req.body.category) {
-    return res.status(422).send({ error: "Please enter a category." });
+    return res.status(422).send({ error: 'Please enter a category.' });
   }
 
   const newEvent = {
@@ -31,9 +31,9 @@ exports.saveEvent = function(req, res, next) {
 };
 
 exports.getEvent = function(req, res, next) {
-  if (req.params.eventId === "all") {
+  if (req.params.eventId === 'all') {
     let query = { user: req.user._id };
-    Event.find(query).sort("date").exec(function(err, events) {
+    Event.find(query).sort('date').exec(function(err, events) {
       if (err) {
         res.status(400).send({ error: err });
       }
@@ -58,7 +58,7 @@ exports.getWeekEvents = function(req, res, next) {
   };
 
   Event.find(query)
-    .where("date")
+    .where('date')
     .gte(filter.weekStart)
     .lte(filter.weekEnd)
     .exec(function(err, events) {
@@ -80,31 +80,31 @@ exports.deleteEvent = function(req, res, next) {
 };
 
 exports.updateEvent = function(req, res, next) {
-  const query = { _id: req.body._id };
+  console.log(req.body);
+  const query = req.body._id;
   const update = {
     $set: {
       date: req.body.date,
       category: req.body.category,
-      event: req.body.event,
+      title: req.body.title,
       private: req.body.private
     }
   };
-  Event.findOneAndUpdate(query, update, { upsert: true, new: false }, function(
-    err,
-    updatedEvent
-  ) {
-    if (err) {
-      res.status(400).send({ error: err });
-      return next(err);
-    }
 
-    res.status(200).json({ message: "updated" });
-  });
+  Event.findByIdAndUpdate(query, update, { new: true })
+    .exec()
+    .then(function(updatedEvent) {
+      console.log(updatedEvent);
+      return res.status(201).json(updatedEvent);
+    })
+    .catch(function(err) {
+      return res.status(500).json({ error: err });
+    });
 };
 
 exports.getDemo = function(req, res, next) {
-  let query = { user: "5916bad6fdaa3e0d015091c7", private: false };
-  Event.find(query).sort("date").exec(function(err, events) {
+  let query = { user: '5916bad6fdaa3e0d015091c7', private: false };
+  Event.find(query).sort('date').exec(function(err, events) {
     if (err) {
       res.status(400).send({ error: err });
     }
