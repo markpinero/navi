@@ -90,18 +90,20 @@ exports.updateEvent = function(req, res, next) {
     }
   };
 
-  Event.findByIdAndUpdate(query, update, { new: true }).exec(function(
-    err,
-    updatedEvent
-  ) {
-    if (err) {
-      res.status(400).send({ error: err });
-      return next(err);
-    }
-
-    res.status(200).json({ message: 'updated' });
-  });
+  Event.findByIdAndUpdate(query, update, { new: true })
+    .exec()
+    .then(function(updatedEvent) {
+      return res.status(201).json(updatedEvent);
+    })
+    .catch(function(err) {
+      return res.status(500).json({ error: err });
+    });
 };
+
+BlogPost.findByIdAndUpdate(req.params.id, { $set: updated }, { new: true })
+  .exec()
+  .then(updatedPost => res.status(201).json(updatedPost.apiRepr()))
+  .catch(err => res.status(500).json({ message: 'Something went wrong' }));
 
 exports.getDemo = function(req, res, next) {
   let query = { user: '5916bad6fdaa3e0d015091c7', private: false };
