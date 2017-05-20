@@ -86,7 +86,7 @@ exports.updateEvent = function(req, res, next) {
     $set: {
       date: req.body.date,
       category: req.body.category,
-      event: req.body.event,
+      title: req.body.title,
       private: req.body.private
     }
   };
