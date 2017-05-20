@@ -80,7 +80,7 @@ exports.deleteEvent = function(req, res, next) {
 };
 
 exports.updateEvent = function(req, res, next) {
-  const query = { _id: req.body._id };
+  const query = req.body._id;
   const update = {
     $set: {
       date: req.body.date,
@@ -89,8 +89,11 @@ exports.updateEvent = function(req, res, next) {
       private: req.body.private
     }
   };
-  Event.updateOne(query, update, function(err, updatedEvent) {
-    console.log(err, updatedEvent);
+
+  Event.findByIdAndUpdate(query, update, { new: true }).exec(function(
+    err,
+    updatedEvent
+  ) {
     if (err) {
       res.status(400).send({ error: err });
       return next(err);
