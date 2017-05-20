@@ -100,11 +100,6 @@ exports.updateEvent = function(req, res, next) {
     });
 };
 
-BlogPost.findByIdAndUpdate(req.params.id, { $set: updated }, { new: true })
-  .exec()
-  .then(updatedPost => res.status(201).json(updatedPost.apiRepr()))
-  .catch(err => res.status(500).json({ message: 'Something went wrong' }));
-
 exports.getDemo = function(req, res, next) {
   let query = { user: '5916bad6fdaa3e0d015091c7', private: false };
   Event.find(query).sort('date').exec(function(err, events) {
