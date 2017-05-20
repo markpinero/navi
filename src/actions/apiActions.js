@@ -106,6 +106,9 @@ export const updateEvent = event => {
       .put(`${API_URL}/api/events/update`, event, authToken)
       .then(response => {
         dispatch(apiDone());
+        setTimeout(function() {
+          window.location.href = '/';
+        }, 300);
       })
       .catch(error => {
         dispatch(apiDone());
