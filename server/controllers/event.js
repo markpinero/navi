@@ -80,6 +80,7 @@ exports.deleteEvent = function(req, res, next) {
 };
 
 exports.updateEvent = function(req, res, next) {
+  console.log(req.body);
   const query = { _id: req.body._id };
   const update = {
     $set: {
