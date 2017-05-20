@@ -1,5 +1,5 @@
 import React from 'react';
-import Questions from './Questions';
+import Events from './Events';
 import { Container, Header, Table } from 'semantic-ui-react';
 import { connect } from 'react-redux';
 import { getAllEvents } from '../../actions/apiActions';
@@ -27,7 +27,7 @@ class Profile extends React.Component {
     return (
       <Container as="section">
         <Header as="h1">Profile</Header>
-        <Header as="h1">Questions</Header>
+        <Header as="h1">Events</Header>
         <Table>
           <Table.Header>
             <Table.Row>
@@ -39,7 +39,7 @@ class Profile extends React.Component {
           </Table.Header>
           <Table.Body>
             {events.map((event, i) => (
-              <Questions
+              <Events
                 key={i}
                 authenticated={authenticated}
                 date={event.date}

@@ -11,7 +11,7 @@ const renderControls = (
   </Table.Cell>
 );
 
-const Questions = ({ date, category, title, authenticated }) => {
+const Events = ({ date, category, title, authenticated }) => {
   const parseDate = new Date(date);
   const ifPeriod = title.endsWith('.');
   return (
@@ -28,4 +28,4 @@ const Questions = ({ date, category, title, authenticated }) => {
   );
 };
 
-export default Questions;
+export default Events;
