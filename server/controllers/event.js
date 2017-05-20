@@ -89,7 +89,7 @@ exports.updateEvent = function(req, res, next) {
       private: req.body.private
     }
   };
-  Event.findOneAndUpdate(query, update, { upsert: true }, function(err, updatedEvent) {
+  Event.updateOne(query, update, function(err, updatedEvent) {
     console.log(err, updatedEvent);
     if (err) {
       res.status(400).send({ error: err });
