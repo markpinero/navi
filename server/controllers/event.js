@@ -80,6 +80,7 @@ exports.deleteEvent = function(req, res, next) {
 };
 
 exports.updateEvent = function(req, res, next) {
+  console.log(req.body);
   const query = req.body._id;
   const update = {
     $set: {
@@ -93,6 +94,7 @@ exports.updateEvent = function(req, res, next) {
   Event.findByIdAndUpdate(query, update, { new: true })
     .exec()
     .then(function(updatedEvent) {
+      console.log(updatedEvent);
       return res.status(201).json(updatedEvent);
     })
     .catch(function(err) {
