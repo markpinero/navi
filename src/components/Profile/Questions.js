@@ -1,28 +1,29 @@
-import React from "react";
-import instadate from "instadate";
-import { Table, Button } from "semantic-ui-react";
+import React from 'react';
+import instadate from 'instadate';
+import { Table, Button } from 'semantic-ui-react';
 
-const Questions = ({ date, category, title, show }) => {
-  const newDate = new Date(date);
-  const ifPeriod = title.endsWith(".");
+const renderControls = (
+  <Table.Cell>
+    <Button.Group>
+      <Button>Edit</Button>
+      <Button>Delete</Button>
+    </Button.Group>
+  </Table.Cell>
+);
+
+const Questions = ({ date, category, title, authenticated }) => {
+  const parseDate = new Date(date);
+  const ifPeriod = title.endsWith('.');
   return (
     <Table.Row>
       <Table.Cell singleLine>
-        {instadate.isoDateString(newDate)}
+        {instadate.isoDateString(parseDate)}
       </Table.Cell>
       <Table.Cell className="profile-category">
         {category}
       </Table.Cell>
-      <Table.Cell>{title}{ifPeriod ? "" : "."}</Table.Cell>
-      <Table.Cell>
-        <Button.Group>
-          {/*
-          TODO: Implement editing
-          <Button>Edit</Button>
-          */}
-          <Button onClick={show}>Delete</Button>
-        </Button.Group>
-      </Table.Cell>
+      <Table.Cell>{title}{ifPeriod ? '' : '.'}</Table.Cell>
+      {authenticated ? renderControls : ''}
     </Table.Row>
   );
 };

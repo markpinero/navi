@@ -1,11 +1,13 @@
 import styled, { injectGlobal, css } from 'styled-components';
 
+// eslint-disable-next-line
 const medium = (...args) => css`
   @media screen and (min-width: 800px) {
     ${css(...args)}
   }
 `;
 
+// eslint-disable-next-line
 injectGlobal`
 
 body {
