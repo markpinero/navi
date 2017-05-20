@@ -1,0 +1,98 @@
+.sq {
+  flex: 1 1 auto;
+  /*width: 50%;*/
+  height: 20px;
+  border-radius: 5px;
+  margin: 5px;
+  background: #fff;
+  border: 1px #eee solid;
+  box-sizing: border-box !important;
+}
+
+.sq:after {
+  padding-bottom: 100%;
+}
+
+.alive {
+  /*border-top: 1px solid #21BA45;*/
+  background: #efe;
+}
+
+.alive.birthday {
+  border: 1px #21BA45 solid;
+}
+
+.five.alive {
+  background: #21BA45;
+}
+
+.birthday {
+  border: 1px #ccc dashed;
+}
+
+.career {
+  background: navy;
+  border: 1px #eee solid !important;
+}
+
+.general {
+  background: #fff;
+  border: 1px #21BA45 solid;
+}
+
+.school {
+  background: lime !important;
+  border: 1px #eee solid;
+}
+
+.personal {
+  background: pink;
+  border: 1px #eee solid !important;
+}
+
+.family {
+  background: yellow;
+  border: 1px #eee solid !important;
+} 
+
+.year-grid {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  position: relative;
+}
+
+.tooltip {
+  width: 100%;
+  height: 100%;
+}
+
+.age {
+  display: none;
+  position: absolute;
+  left: -25px;
+  top: 50%;
+  margin-top: -10px;
+  text-align: right;
+  width: 25px;
+  color: rgba(0, 0, 0, 0.4);
+}
+
+.headroom-wrapper { display: none; }
+
+@media screen and (min-width: 800px) {
+  .sq {
+    height: 40px;
+    margin: 10px;
+    border-radius: 20px;
+  }
+
+  .age {
+    display: block;
+  }
+
+  .headroom-wrapper {
+    display: block;
+  }
+
+}
