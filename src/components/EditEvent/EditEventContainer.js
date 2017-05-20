@@ -36,8 +36,7 @@ class EditEventContainer extends React.Component {
       ...this.state.form,
       date: new Date(this.state.form.date)
     };
-    console.log(form);
-    // this.props.updateEvent(form);
+    this.props.updateEvent(form);
   };
 
   renderAlert = () => {
