@@ -10,7 +10,7 @@ const Landing = () => (
     <Hero>
       <Container as="section">
         <Header textAlign="center" as="h1">
-          The Life Calendar
+          Navi: The Life Calendar
         </Header>
         <Text>
           What makes a good life? The fancy things? Diamond rings?
