@@ -1,5 +1,5 @@
 # Navi
-> HEY, LISTEN!
+> Tech Used: React, Redux, Nodejs, MongoDB
 
 ![Navi: The Life Calendar](https://github.com/remarks/navi/blob/master/client/public/images/screenshot.png)
 
