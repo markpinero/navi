@@ -11,13 +11,13 @@ class Landing extends React.Component {
   constructor(props) {
     super(props)
     this.state = {
-      apiStatus: {}
+      apiStatus: undefined
     }
   }
   componentDidMount() {
     // Prime heroku server
     axios.get(API_URL).then(response => {
-      this.setState({ apiStatus: response })
+      this.setState({ apiStatus: response.data.message })
     })
   }
 

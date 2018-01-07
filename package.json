@@ -26,6 +26,9 @@
     "react-scripts": "0.9.5",
     "semantic-ui": "^2.2.10"
   },
+  "engines": {
+    "node": "8.9.4"
+  },
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
