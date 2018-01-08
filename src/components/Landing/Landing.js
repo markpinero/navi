@@ -22,7 +22,7 @@ class Landing extends React.Component {
   }
 
   render() {
-    console.log(this.state)
+    console.log(this.state.appStatus)
     return (
       <div>
         <Hero>
